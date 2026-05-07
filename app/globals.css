@@ -1,0 +1,283 @@
+:root {
+  --bg: #f4efe7;
+  --surface: #fffaf3;
+  --card: #fff;
+  --text: #181511;
+  --muted: #6f6256;
+  --line: rgba(24, 21, 17, 0.12);
+  --accent: #d85a31;
+  --accent-dark: #a33f21;
+  --shadow: 0 18px 45px rgba(24, 21, 17, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, rgba(216, 90, 49, 0.14), transparent 28%),
+    linear-gradient(180deg, #f7f1e8 0%, #f4efe7 100%);
+  color: var(--text);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+main {
+  min-height: 100vh;
+}
+
+.container {
+  width: min(1180px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(10px);
+  background: rgba(244, 239, 231, 0.85);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-shell,
+.nav,
+.hero-actions,
+.tag-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.nav-shell {
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+.brand {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.nav a {
+  color: var(--muted);
+}
+
+.hero,
+.section,
+.page-shell {
+  padding: 4rem 0;
+}
+
+.hero-grid,
+.split-grid,
+.triple-grid,
+.artist-grid,
+.footer-grid,
+.service-grid,
+.shop-layout,
+.product-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.hero-grid {
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+}
+
+.split-grid,
+.triple-grid,
+.artist-grid,
+.footer-grid,
+.service-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.shop-layout {
+  grid-template-columns: 280px 1fr;
+}
+
+.product-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.hero-card,
+.info-card,
+.product-card,
+.artist-card,
+.blog-card,
+.service-card,
+.filters,
+.category-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+}
+
+.hero-card,
+.info-card,
+.artist-card,
+.blog-card,
+.service-card,
+.filters,
+.category-card {
+  padding: 1.5rem;
+}
+
+.hero-card h1,
+.section-heading h2,
+.page-title {
+  margin: 0;
+  line-height: 0.95;
+  font-size: clamp(2.3rem, 5vw, 5rem);
+}
+
+.hero-card p,
+.section-heading p,
+.page-intro,
+.artist-card p,
+.product-copy p,
+.blog-card p,
+.service-card p,
+.info-card p,
+.site-footer p,
+.category-card p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.button,
+.button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1.25rem;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.button {
+  background: var(--accent);
+  color: #fff;
+}
+
+.button-secondary {
+  border: 1px solid var(--line);
+}
+
+.eyebrow {
+  margin: 0 0 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  color: var(--accent-dark);
+}
+
+.hero-media,
+.artist-visual,
+.product-media {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  min-height: 280px;
+}
+
+.hero-media img,
+.artist-visual img,
+.product-media img {
+  object-fit: cover;
+}
+
+.section-heading {
+  max-width: 760px;
+  margin-bottom: 2rem;
+}
+
+.product-copy {
+  padding: 1.25rem;
+}
+
+.product-copy h3 {
+  margin: 0.35rem 0;
+  font-size: 1.4rem;
+}
+
+.product-meta,
+.results-count {
+  font-size: 0.95rem;
+  color: var(--accent-dark);
+}
+
+.page-shell {
+  display: grid;
+  gap: 2rem;
+}
+
+.filters {
+  position: sticky;
+  top: 6rem;
+  align-self: start;
+}
+
+.filters label {
+  display: grid;
+  gap: 0.45rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.filters select {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.site-footer {
+  padding: 2.5rem 0 4rem;
+  border-top: 1px solid var(--line);
+}
+
+.footer-grid a {
+  display: block;
+  margin-bottom: 0.65rem;
+  color: var(--muted);
+}
+
+@media (max-width: 960px) {
+  .hero-grid,
+  .split-grid,
+  .triple-grid,
+  .artist-grid,
+  .footer-grid,
+  .service-grid,
+  .shop-layout,
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .filters {
+    position: static;
+  }
+
+  .hero,
+  .section,
+  .page-shell {
+    padding: 3rem 0;
+  }
+}

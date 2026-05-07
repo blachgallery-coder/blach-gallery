@@ -1,0 +1,31 @@
+node_modules
+.next
+.env
+.env.local
+npm-debug.log*
+
+# archives et anciens contenus hors app
+Wordpress
+Code
+Logos
+Support visuel
+images_icones
+export produit csv
+
+# documents divers
+*.odt
+*.ods
+*.docx
+*.pdf
+*.zip
+*.psd
+*.ai
+*.mp4
+*.csv
+*.txt
+*.png
+*.jpg
+*.jpeg
+
+# exception : on garde les images du site dans public
+!public/**
