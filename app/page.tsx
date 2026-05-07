@@ -1,8 +1,11 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import Link from "next/link";
 import { ProductGrid } from "@/components/product-grid";
 import { SectionHeading } from "@/components/section-heading";
 import { products, themePages } from "@/lib/data";
+
+const etsyShopUrl = "https://artofblach.patternbyetsy.com/shop";
+const catawikiAuctionsUrl = "https://www.catawiki.com/fr/u/7440221-blachgallery";
 
 export default function HomePage() {
   const bestSellers = products.filter((product) => product.isBestSeller);
@@ -20,9 +23,12 @@ export default function HomePage() {
               pour la décoration premium, le cadeau marquant et l'achat rapide sur mobile.
             </p>
             <div className="hero-actions">
-              <Link href="/shop" className="button">
-                Voir le shop
-              </Link>
+              <a href={etsyShopUrl} className="button" target="_blank" rel="noreferrer">
+                SHOP EN LIGNE
+              </a>
+              <a href={catawikiAuctionsUrl} className="button-secondary" target="_blank" rel="noreferrer">
+                VOIR LES ENCHERES
+              </a>
               <Link href="/artistes" className="button-secondary">
                 Découvrir les artistes
               </Link>
@@ -51,23 +57,23 @@ export default function HomePage() {
           <SectionHeading
             eyebrow="Catégories principales"
             title="Trois portes d'entrée pour convertir plus vite."
-            description="La homepage guide immédiatement le visiteur vers l'achat d'oeuvres, les prestations sur mesure ou les performances live."
+            description="La homepage guide immédiatement le visiteur vers la boutique, les enchères et les demandes de fresques."
           />
           <div className="split-grid">
-            <Link href="/shop" className="category-card">
+            <a href={etsyShopUrl} className="category-card" target="_blank" rel="noreferrer">
               <p className="eyebrow">1. Tableaux street art</p>
-              <h3>Shop par thématique</h3>
-              <p>Explorez les oeuvres par style, artiste, format et budget.</p>
-            </Link>
-            <Link href="/performances-artistiques" className="category-card">
-              <p className="eyebrow">2. Performances artistiques</p>
-              <h3>Live painting et événements</h3>
-              <p>Une offre pensée pour les marques, entreprises et lieux premium.</p>
-            </Link>
-            <Link href="/theme/street-art-lyon" className="category-card">
-              <p className="eyebrow">3. Collections SEO</p>
-              <h3>Pages thématiques à forte intention</h3>
-              <p>Des landing pages éditoriales pour capter plus de trafic qualifié.</p>
+              <h3>SHOP EN LIGNE</h3>
+              <p>Accédez directement à la boutique Etsy pour voir les tableaux disponibles.</p>
+            </a>
+            <a href={catawikiAuctionsUrl} className="category-card" target="_blank" rel="noreferrer">
+              <p className="eyebrow">2. Enchères</p>
+              <h3>VOIR LES ENCHERES</h3>
+              <p>Retrouvez les ventes Catawiki en cours et les nouvelles pièces mises aux enchères.</p>
+            </a>
+            <Link href="/fresque-graffiti" className="category-card">
+              <p className="eyebrow">3. Fresques</p>
+              <h3>DEMANDER UN DEVIS</h3>
+              <p>Explorez l'offre fresque graffiti pour les particuliers, entreprises et projets sur mesure.</p>
             </Link>
           </div>
         </div>
