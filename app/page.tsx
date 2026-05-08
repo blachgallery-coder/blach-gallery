@@ -16,18 +16,17 @@ export default function HomePage() {
       <section className="hero">
         <div className="container hero-grid">
           <div className="hero-card">
-            <p className="eyebrow">Galerie en ligne multi-artistes</p>
-            <h1>Des tableaux street art conçus pour attirer l'oeil et déclencher l'achat.</h1>
+            <p className="eyebrow">Galerie street art Fluxus</p>
+            <h1>La petite galerie près de Lyon qui s’exporte partout dans le monde.</h1>
             <p>
-              BLACH GALLERY réunit Maxime Blachere et des artistes invités autour d'une collection pensée
-              pour la décoration premium, le cadeau marquant et l'achat rapide sur mobile.
+              La BLACH GALLERY est un collectif d’artistes lyonnais et internationaux fondé par Maxime Blachère en 2020 pendant la crise Covid. Retrouvez l’univers coloré, déjanté et Fluxus de ce collectif d’artistes mêlant street art, graffiti, pop culture et création contemporaine.
             </p>
             <div className="hero-actions">
               <a href={etsyShopUrl} className="button" target="_blank" rel="noreferrer">
                 SHOP EN LIGNE
               </a>
-              <a href={catawikiAuctionsUrl} className="button-secondary" target="_blank" rel="noreferrer">
-                VOIR LES ENCHERES
+              <a href={catawikiAuctionsUrl} className="button" target="_blank" rel="noreferrer">
+                ENCHÈRES EN LIGNE
               </a>
               <Link href="/artistes" className="button-secondary">
                 Découvrir les artistes
@@ -121,4 +120,3 @@ export default function HomePage() {
     </>
   );
 }
-
