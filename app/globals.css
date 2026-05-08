@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --bg: #f4efe7;
   --surface: #fffaf3;
   --card: #fff;
@@ -280,4 +280,31 @@ main {
   .page-shell {
     padding: 3rem 0;
   }
+}
+
+.product-subtitle {
+  margin-top: 0.35rem;
+  color: var(--accent-dark);
+  font-weight: 700;
+}
+
+.product-section {
+  margin-top: 1rem;
+}
+
+.product-section h4 {
+  margin: 0 0 0.6rem;
+  font-size: 1rem;
+}
+
+.product-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.product-cta {
+  margin-top: 1.2rem;
+  width: 100%;
 }

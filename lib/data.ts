@@ -64,17 +64,37 @@ export const themePages: ThemePage[] = [
 
 export const products: Product[] = [
   {
-    slug: "tableau-street-art-lyon-moderne",
-    title: "Tableau street art moderne â€“ street art lyon",
+    slug: "lyon-feat-carotte-xl",
+    title: "Lyon feat Carotte XL",
     theme: "street-art-lyon",
-    style: "Street art",
-    artist: "Maxime Blachere",
-    format: "100 x 100 cm",
-    price: 1450,
+    style: "",
+    artist: "",
+    format: "",
+    price: 200,
     image: "/images/home/street-art-blach-gallery.webp",
-    alt: "tableau street art moderne artiste BLACH Lyon",
+    alt: "tableau street art moderne edition limitee graffiti art urbain Lyon",
     isBestSeller: true,
-    seoDescription: createSeoDescription("street art lyon", "Maxime Blachere", "100 x 100 cm")
+    subtitle: "Limited edition signed and numbered by Blach® and Carotte Officiel",
+    features: [
+      "Édition limitée à 30 exemplaires",
+      "Signée et numérotée à la main",
+      "Certificat d’authenticité fourni",
+      "Toile premium 450g ultra résistante",
+      "Infroissable",
+      "Indéchirable",
+      "Norme anti-feu B1",
+      "Marges prévues pour montage sur châssis",
+      "Châssis et cadre non fournis"
+    ],
+    shipping: [
+      "Expédition gratuite France",
+      "Tube renforcé sécurisé",
+      "Assurance et suivi inclus"
+    ],
+    ctaLabel: "Voir sur le shop",
+    ctaHref: "https://artofblach.patternbyetsy.com/listing/4332245877/lyon-feat-carotte-xl-limited-edition",
+    seoDescription:
+      "Cette édition limitée grand format réunit BLACH® (Maxime Blachère) et Carotte Officiel autour d’une vision artistique explosive de Lyon. Entre graffiti, street art contemporain, culture urbaine et univers Fluxus, cette collaboration célèbre l’énergie créative lyonnaise dans une œuvre colorée, moderne et immédiatement reconnaissable. Pensée pour les amateurs d’art urbain, de décoration contemporaine et de pièces visuelles fortes, cette création apporte une présence graphique puissante dans un salon, un bureau, un loft ou un espace professionnel. Le mélange de photographie, graffiti, marqueurs acryliques et composition pop urbaine crée une œuvre premium facile à intégrer dans des intérieurs modernes. Cette édition limitée signée par les deux artistes constitue également une idée cadeau originale pour les collectionneurs, amateurs de street art et passionnés de Lyon."
   },
   {
     slug: "tableau-pop-art-moderne",
@@ -192,6 +212,7 @@ export const getProductsByTheme = (slug: string) =>
 
 export const getThemeBySlug = (slug: string) =>
   themePages.find((theme) => theme.slug === slug);
+
 
 
 
