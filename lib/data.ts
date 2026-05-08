@@ -98,7 +98,7 @@ export const products: Product[] = [
     artist: "TCHK",
     format: "90 x 90 cm",
     price: 1190,
-    image: "/images/home/Street art Carotte Bio number one-blach-gallery.webp",
+    image: "/images/home/street-art-carotte-bio-number-one-blach-gallery.webp",
     alt: "tableau street art moderne artiste BLACH Lyon",
     isNew: true,
     seoDescription: createSeoDescription("manga", "TCHK", "90 x 90 cm")
@@ -111,7 +111,7 @@ export const products: Product[] = [
     artist: "Bonte",
     format: "120 x 120 cm",
     price: 1890,
-    image: "/images/home/Street Art Breton Normand-blach-gallery.webp",
+    image: "/images/home/street-art-breton-normand-blach-gallery.webp",
     alt: "tableau street art moderne artiste BLACH Lyon",
     isBestSeller: true,
     seoDescription: createSeoDescription("art moderne", "Bonte", "120 x 120 cm")
@@ -137,7 +137,7 @@ export const artists: Artist[] = [
     slug: "tchk",
     name: "TCHK",
     bio: "TCHK croise culture urbaine, rÃ©fÃ©rences manga et compositions explosives pour des tableaux Ã  forte personnalitÃ©.",
-    image: "/images/home/Street Art Breton Normand-blach-gallery.webp",
+    image: "/images/home/street-art-breton-normand-blach-gallery.webp",
     specialties: ["Manga", "Graffiti", "PiÃ¨ces collector"]
   }
 ];
@@ -192,6 +192,7 @@ export const getProductsByTheme = (slug: string) =>
 
 export const getThemeBySlug = (slug: string) =>
   themePages.find((theme) => theme.slug === slug);
+
 
 
 
