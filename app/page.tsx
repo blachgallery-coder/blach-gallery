@@ -42,7 +42,7 @@ export default function HomePage() {
           </div>
           <div className="hero-media">
             <Image
-              src="/images/home/street-art-blach-gallery.png"
+              src="/images/home/street-art-blach-gallery.webp"
               alt="tableau street art moderne artiste BLACH Lyon"
               fill
               priority
@@ -121,3 +121,4 @@ export default function HomePage() {
     </>
   );
 }
+

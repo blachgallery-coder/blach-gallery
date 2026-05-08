@@ -71,7 +71,7 @@ export const products: Product[] = [
     artist: "Maxime Blachere",
     format: "100 x 100 cm",
     price: 1450,
-    image: "/images/home/street-art-blach-gallery.png",
+    image: "/images/home/street-art-blach-gallery.webp",
     alt: "tableau street art moderne artiste BLACH Lyon",
     isBestSeller: true,
     seoDescription: createSeoDescription("street art lyon", "Maxime Blachere", "100 x 100 cm")
@@ -84,7 +84,7 @@ export const products: Product[] = [
     artist: "Carotte",
     format: "80 x 120 cm",
     price: 1290,
-    image: "/images/home/pop-art-blach-gallery.png",
+    image: "/images/home/pop-art-blach-gallery.webp",
     alt: "tableau street art moderne artiste BLACH Lyon",
     isBestSeller: true,
     isNew: true,
@@ -98,7 +98,7 @@ export const products: Product[] = [
     artist: "TCHK",
     format: "90 x 90 cm",
     price: 1190,
-    image: "/images/home/art-abstrait-blach-gallery.png",
+    image: "/images/home/Street art Carotte Bio number one-blach-gallery.webp",
     alt: "tableau street art moderne artiste BLACH Lyon",
     isNew: true,
     seoDescription: createSeoDescription("manga", "TCHK", "90 x 90 cm")
@@ -111,7 +111,7 @@ export const products: Product[] = [
     artist: "Bonte",
     format: "120 x 120 cm",
     price: 1890,
-    image: "/images/home/art-contemporain-blach-gallery.png",
+    image: "/images/home/Street Art Breton Normand-blach-gallery.webp",
     alt: "tableau street art moderne artiste BLACH Lyon",
     isBestSeller: true,
     seoDescription: createSeoDescription("art moderne", "Bonte", "120 x 120 cm")
@@ -123,21 +123,21 @@ export const artists: Artist[] = [
     slug: "maxime-blachere",
     name: "Maxime Blachere",
     bio: "Fondateur de BLACH GALLERY, Maxime Blachere dÃ©veloppe une Ã©criture visuelle entre street art, Ã©nergie graphique et scÃ©nographie murale pour les particuliers et les marques.",
-    image: "/images/home/street-art-blach-gallery.png",
+    image: "/images/home/street-art-blach-gallery.webp",
     specialties: ["Street art", "Performances live", "Commandes sur mesure"]
   },
   {
     slug: "carotte",
     name: "Carotte",
     bio: "Carotte signe des oeuvres pop, ludiques et percutantes, pensÃ©es pour une dÃ©coration pleine de relief et une lecture immÃ©diate.",
-    image: "/images/home/pop-art-blach-gallery.png",
+    image: "/images/home/pop-art-blach-gallery.webp",
     specialties: ["Pop art", "Personnages iconiques", "Formats salon"]
   },
   {
     slug: "tchk",
     name: "TCHK",
     bio: "TCHK croise culture urbaine, rÃ©fÃ©rences manga et compositions explosives pour des tableaux Ã  forte personnalitÃ©.",
-    image: "/images/home/art-contemporain-blach-gallery.png",
+    image: "/images/home/Street Art Breton Normand-blach-gallery.webp",
     specialties: ["Manga", "Graffiti", "PiÃ¨ces collector"]
   }
 ];
@@ -192,6 +192,7 @@ export const getProductsByTheme = (slug: string) =>
 
 export const getThemeBySlug = (slug: string) =>
   themePages.find((theme) => theme.slug === slug);
+
 
 
 
