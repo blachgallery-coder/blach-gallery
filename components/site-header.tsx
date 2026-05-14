@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { LanguageSwitcher } from "@/components/language-switcher";
 import { navigation } from "@/lib/data";
 
 export function SiteHeader() {
@@ -14,6 +15,7 @@ export function SiteHeader() {
               {item.label}
             </Link>
           ))}
+          <LanguageSwitcher />
         </nav>
       </div>
     </header>

@@ -10,6 +10,11 @@
   alt: string;
   isBestSeller?: boolean;
   isNew?: boolean;
+  subtitle?: string;
+  features?: string[];
+  shipping?: string[];
+  ctaLabel?: string;
+  ctaHref?: string;
   seoDescription: string;
 };
 
@@ -212,6 +217,7 @@ export const getProductsByTheme = (slug: string) =>
 
 export const getThemeBySlug = (slug: string) =>
   themePages.find((theme) => theme.slug === slug);
+
 
 
 

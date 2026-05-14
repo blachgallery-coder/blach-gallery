@@ -31,7 +31,7 @@ function setGoogleTranslateCookie(languageCode: string) {
 
 export function LanguageSwitcher() {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeLanguage, setActiveLanguage] = useState(defaultLanguage.code);
+  const [activeLanguage, setActiveLanguage] = useState<string>(defaultLanguage.code);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -118,7 +118,7 @@ export function LanguageSwitcher() {
                 onClick={() => handleLanguageChange(language.code)}
               >
                 <span>{language.label}</span>
-                {isActive ? <span className="language-option-check">✓</span> : null}
+                {isActive ? <span className="language-option-check">OK</span> : null}
               </button>
             );
           })}
