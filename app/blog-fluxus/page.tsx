@@ -1,17 +1,25 @@
-import type { Metadata } from "next";
-import { ContentPageShell } from "@/components/content-page-shell";
+﻿import type { Metadata } from "next";
+import { NewsBoard } from "@/components/news-board";
+import { newsEvents } from "@/lib/collective";
 
 export const metadata: Metadata = {
-  title: "Blog Fluxus street art et culture visuelle",
-  description: "Espace editorial BLACH GALLERY pour le SEO, les tendances street art et l'univers Fluxus."
+  title: "News et evenements BLACH GALLERY",
+  description:
+    "Retrouvez les news, expositions, vernissages, performances live et annonces du collectif BLACH GALLERY."
 };
 
 export default function BlogFluxusPage() {
   return (
-    <ContentPageShell
-      eyebrow="Editorial"
-      title="Blog Fluxus"
-      description="Cette page servira d'entree pour le futur contenu SEO : street art, Fluxus, graffiti, deco, cadeaux et univers BLACH."
-    />
+    <section className="page-shell container news-page-shell">
+      <div>
+        <p className="eyebrow">News & evenements</p>
+        <h1 className="page-title">Le carnet vivant de la BLACH GALLERY</h1>
+        <p className="page-intro">
+          Une base editoriale moderne pour suivre les expos, vernissages, performances live, projets muraux et temps
+          forts du collectif.
+        </p>
+      </div>
+      <NewsBoard events={newsEvents} />
+    </section>
   );
 }

@@ -106,7 +106,7 @@ export const products: Product[] = [
     title: "Tableau street art moderne â€“ pop art",
     theme: "pop-art",
     style: "Pop art",
-    artist: "Carotte",
+    artist: "La Carotte",
     format: "80 x 120 cm",
     price: 1290,
     image: "/images/home/pop-art-blach-gallery.webp",
@@ -117,53 +117,53 @@ export const products: Product[] = [
   },
   {
     slug: "tableau-manga-urbain",
-    title: "Tableau street art moderne â€“ manga",
+    title: "Tableau street art moderne - portrait pop urbain",
     theme: "manga",
-    style: "Manga urbain",
-    artist: "TCHK",
+    style: "Portrait pop urbain",
+    artist: "ArtHM",
     format: "90 x 90 cm",
     price: 1190,
     image: "/images/home/street-art-carotte-bio-number-one-blach-gallery.webp",
     alt: "tableau street art moderne artiste BLACH Lyon",
     isNew: true,
-    seoDescription: createSeoDescription("manga", "TCHK", "90 x 90 cm")
+    seoDescription: createSeoDescription("portrait pop urbain", "ArtHM", "90 x 90 cm")
   },
   {
     slug: "tableau-art-moderne-couleurs",
-    title: "Tableau street art moderne â€“ art moderne",
+    title: "Tableau contemporain lumineux - paysage moderne",
     theme: "art-moderne",
-    style: "Art moderne",
-    artist: "Bonte",
+    style: "Paysage contemporain",
+    artist: "Alain Meraud",
     format: "120 x 120 cm",
     price: 1890,
     image: "/images/home/street-art-breton-normand-blach-gallery.webp",
     alt: "tableau street art moderne artiste BLACH Lyon",
     isBestSeller: true,
-    seoDescription: createSeoDescription("art moderne", "Bonte", "120 x 120 cm")
+    seoDescription: createSeoDescription("paysage contemporain", "Alain Meraud", "120 x 120 cm")
   }
 ];
 
 export const artists: Artist[] = [
   {
     slug: "maxime-blachere",
-    name: "Maxime Blachere",
+    name: "BLACH (Maxime Blachere)",
     bio: "Fondateur de BLACH GALLERY, Maxime Blachere dÃ©veloppe une Ã©criture visuelle entre street art, Ã©nergie graphique et scÃ©nographie murale pour les particuliers et les marques.",
     image: "/images/home/street-art-blach-gallery.webp",
     specialties: ["Street art", "Performances live", "Commandes sur mesure"]
   },
   {
     slug: "carotte",
-    name: "Carotte",
+    name: "La Carotte",
     bio: "Carotte signe des oeuvres pop, ludiques et percutantes, pensÃ©es pour une dÃ©coration pleine de relief et une lecture immÃ©diate.",
     image: "/images/home/pop-art-blach-gallery.webp",
     specialties: ["Pop art", "Personnages iconiques", "Formats salon"]
   },
   {
     slug: "tchk",
-    name: "TCHK",
-    bio: "TCHK croise culture urbaine, rÃ©fÃ©rences manga et compositions explosives pour des tableaux Ã  forte personnalitÃ©.",
+    name: "ArtHM",
+    bio: "ArtHM croise portraits, culture pop urbaine et animalite colorée dans un langage vif, detaille et tres direct.",
     image: "/images/home/street-art-breton-normand-blach-gallery.webp",
-    specialties: ["Manga", "Graffiti", "PiÃ¨ces collector"]
+    specialties: ["Portraits", "Animaux", "Pop street art"]
   }
 ];
 
@@ -208,7 +208,7 @@ export const navigation = [
   { href: "/encheres-de-la-semaine", label: "Encheres" },
   { href: "/artistes-du-collectif", label: "Collectif" },
   { href: "/fresque-graffiti", label: "Fresques" },
-  { href: "/blog-fluxus", label: "Blog Fluxus" },
+  { href: "/blog-fluxus", label: "News & evenements" },
   { href: "/bio-contact", label: "Bio / Contact" }
 ];
 
@@ -217,6 +217,7 @@ export const getProductsByTheme = (slug: string) =>
 
 export const getThemeBySlug = (slug: string) =>
   themePages.find((theme) => theme.slug === slug);
+
 
 
 

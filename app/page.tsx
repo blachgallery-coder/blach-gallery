@@ -1,117 +1,121 @@
-﻿import Image from "next/image";
-import Link from "next/link";
-import { ProductGrid } from "@/components/product-grid";
-import { SectionHeading } from "@/components/section-heading";
-import { products, themePages } from "@/lib/data";
+﻿import Link from "next/link";
+import { ArtworkMasonry } from "@/components/artwork-masonry";
+import { NewsBoard } from "@/components/news-board";
+import { featuredArtworks, homepageActions, newsEvents } from "@/lib/collective";
+import { themePages } from "@/lib/data";
 
-const etsyShopUrl = "https://artofblach.patternbyetsy.com/shop";
-const catawikiAuctionsUrl = "https://www.catawiki.com/fr/u/7440221-blachgallery";
+function HomeActionLink({
+  href,
+  label,
+  tone,
+  external
+}: {
+  href: string;
+  label: string;
+  tone: "orange" | "pink" | "yellow" | "green" | "blue";
+  external?: boolean;
+}) {
+  const className = `hero-pop-button hero-pop-button-${tone}`;
 
-export default function HomePage() {
-  const bestSellers = products.filter((product) => product.isBestSeller);
-  const newProducts = products.filter((product) => product.isNew);
+  if (external) {
+    return (
+      <a href={href} className={className} target="_blank" rel="noreferrer">
+        {label}
+      </a>
+    );
+  }
 
   return (
+    <Link href={href} className={className}>
+      {label}
+    </Link>
+  );
+}
+
+export default function HomePage() {
+  return (
     <>
-      <section className="hero">
-        <div className="container hero-grid">
-          <div className="hero-card">
-            <p className="eyebrow">Galerie street art Fluxus</p>
-            <h1>La petite galerie près de Lyon qui s’exporte partout dans le monde.</h1>
+      <section className="hero hero-premium">
+        <div className="container hero-grid hero-grid-premium">
+          <div className="hero-card hero-card-premium">
+            <p className="eyebrow">Collectif artistique contemporain</p>
+            <h1>Bienvenue a la BLACH GALLERY</h1>
+            <p className="hero-lead">La BLACH GALLERY est un collectif d'artistes fonde par Maxime Blachere.</p>
             <p>
-              La BLACH GALLERY est un collectif d’artistes lyonnais et internationaux fondé par Maxime Blachère en 2020 pendant la crise Covid. Retrouvez l’univers coloré, déjanté et Fluxus de ce collectif d’artistes mêlant street art, graffiti, pop culture et création contemporaine.
+              Une galerie en ligne vivante, pop et internationale, pensee pour faire dialoguer street art,
+              culture visuelle, gestes libres et signatures singulieres dans un meme accrochage.
             </p>
-            <div className="hero-actions">
-              <a href={etsyShopUrl} className="button" target="_blank" rel="noreferrer">
-                SHOP EN LIGNE
-              </a>
-              <a href={catawikiAuctionsUrl} className="button" target="_blank" rel="noreferrer">
-                ENCHÈRES EN LIGNE
-              </a>
-              <Link href="/artistes" className="button-secondary">
-                Découvrir les artistes
-              </Link>
-            </div>
-            <div className="tag-row">
-              <span>Street art</span>
-              <span>Pop art</span>
-              <span>Manga</span>
-              <span>Art moderne</span>
+            <div className="hero-actions hero-actions-rainbow">
+              {homepageActions.map((action) => (
+                <HomeActionLink key={action.label} {...action} />
+              ))}
             </div>
           </div>
-          <div className="hero-media">
-            <Image
-              src="/images/home/street-art-blach-gallery.webp"
-              alt="tableau street art moderne artiste BLACH Lyon"
-              fill
-              priority
-              sizes="(max-width: 960px) 100vw, 45vw"
-            />
+          <div className="hero-stage-card">
+            <div className="hero-stage-copy">
+              <p className="eyebrow">Edition signature</p>
+              <h2>Lyon feat Carotte XL</h2>
+              <p>
+                Le point d'ancrage du collectif : un format manifeste, urbain, coloré et frontal qui donne tout de
+                suite le ton BLACH GALLERY.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="section">
+      <section className="section section-tight">
         <div className="container">
-          <SectionHeading
-            eyebrow="Catégories principales"
-            title="Trois portes d'entrée pour convertir plus vite."
-            description="La homepage guide immédiatement le visiteur vers la boutique, les enchères et les demandes de fresques."
-          />
-          <div className="split-grid">
-            <a href={etsyShopUrl} className="category-card" target="_blank" rel="noreferrer">
-              <p className="eyebrow">1. Tableaux street art</p>
-              <h3>SHOP EN LIGNE</h3>
-              <p>Accédez directement à la boutique Etsy pour voir les tableaux disponibles.</p>
-            </a>
-            <a href={catawikiAuctionsUrl} className="category-card" target="_blank" rel="noreferrer">
-              <p className="eyebrow">2. Enchères</p>
-              <h3>VOIR LES ENCHERES</h3>
-              <p>Retrouvez les ventes Catawiki en cours et les nouvelles pièces mises aux enchères.</p>
-            </a>
-            <Link href="/fresque-graffiti" className="category-card">
-              <p className="eyebrow">3. Fresques</p>
-              <h3>DEMANDER UN DEVIS</h3>
-              <p>Explorez l'offre fresque graffiti pour les particuliers, entreprises et projets sur mesure.</p>
-            </Link>
+          <div className="section-heading section-heading-compact">
+            <p className="eyebrow">Selection visuelle</p>
+            <h2>Voici quelques-uns de nos bangers</h2>
           </div>
+          <ArtworkMasonry items={featuredArtworks} />
+        </div>
+      </section>
+
+      <section className="section section-tight">
+        <div className="container home-editorial-grid">
+          <Link href="/artistes-du-collectif" className="editorial-card editorial-card-collectif">
+            <p className="eyebrow">Collectif</p>
+            <h3>Des artistes, des styles, une scene en mouvement.</h3>
+            <p>Entrez dans la BLACH GALLERY comme dans un accrochage vivant, avec des profils plus humains et plus incarnes.</p>
+          </Link>
+          <Link href="/fresque-graffiti" className="editorial-card editorial-card-fresque">
+            <p className="eyebrow">Mur & espace</p>
+            <h3>Fresques murales, activations visuelles et projets sur mesure.</h3>
+            <p>Pour les lieux qui veulent une presence artistique forte, du geste spontané au grand format premium.</p>
+          </Link>
+          <Link href="/blog-fluxus" className="editorial-card editorial-card-news">
+            <p className="eyebrow">News</p>
+            <h3>Expos, vernissages, performances live et carnet de bord.</h3>
+            <p>Une porte d'entree editoriale pour suivre l'energie du collectif et ses prochains rendez-vous.</p>
+          </Link>
+        </div>
+      </section>
+
+      <section className="section section-tight">
+        <div className="container">
+          <div className="section-heading section-heading-compact">
+            <p className="eyebrow">News & evenements</p>
+            <h2>La galerie bouge aussi hors cadre.</h2>
+          </div>
+          <NewsBoard events={newsEvents.slice(0, 3)} />
         </div>
       </section>
 
       <section className="section">
         <div className="container">
-          <SectionHeading
-            eyebrow="Best sellers"
-            title="Les oeuvres qui performent déjà."
-            description="Une sélection immédiatement rassurante pour les visiteurs prêts à acheter."
-          />
-          <ProductGrid products={bestSellers} />
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container">
-          <SectionHeading
-            eyebrow="Nouveautés"
-            title="Les dernières pièces ajoutées à la galerie."
-            description="Idéal pour réactiver le trafic récurrent et créer un rendez-vous visuel."
-          />
-          <ProductGrid products={newProducts} />
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container">
-          <SectionHeading
-            eyebrow="Catégories SEO"
-            title="Des univers éditoriaux conçus pour Google et pour l'achat."
-          />
+          <div className="section-heading section-heading-compact">
+            <p className="eyebrow">Themes</p>
+            <h2>Univers street, pop et contemporain pour continuer la visite.</h2>
+          </div>
           <div className="triple-grid">
             {themePages.map((theme) => (
-              <Link key={theme.slug} href={`/theme/${theme.slug}`} className="info-card">
+              <Link key={theme.slug} href={`/theme/${theme.slug}`} className="info-card info-card-vivid">
                 <p className="eyebrow">{theme.label}</p>
                 <h3>{theme.h1}</h3>
-                <p>{theme.intro.slice(0, 180)}...</p>
+                <p>{theme.intro.slice(0, 145)}...</p>
               </Link>
             ))}
           </div>
