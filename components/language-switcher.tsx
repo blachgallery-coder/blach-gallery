@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { defaultLanguage, translationLanguages } from "@/lib/translation-languages";
 
 const storageKey = "blach-gallery-language";
+const explicitSelectionKey = "blach-gallery-language-explicit";
 
 function readGoogleTranslateCookie() {
   if (typeof document === "undefined") {
@@ -27,6 +28,7 @@ function setGoogleTranslateCookie(languageCode: string) {
   document.cookie = serialized;
   document.cookie = `${serialized};domain=${window.location.hostname}`;
   window.localStorage.setItem(storageKey, languageCode);
+  window.localStorage.setItem(explicitSelectionKey, "true");
 }
 
 export function LanguageSwitcher() {

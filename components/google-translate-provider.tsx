@@ -26,14 +26,16 @@ const bootstrapScript = `
     var defaultLanguage = ${JSON.stringify(defaultLanguage.code)};
     var cookieName = "googtrans";
     var storageKey = "blach-gallery-language";
-
-    function getCookie(name) {
-      var match = document.cookie.match(new RegExp("(^|; )" + name + "=([^;]*)"));
-      return match ? decodeURIComponent(match[2]) : "";
-    }
+    var explicitKey = "blach-gallery-language-explicit";
 
     function setCookie(value) {
       var cookie = cookieName + "=" + encodeURIComponent(value) + ";path=/;max-age=31536000";
+      document.cookie = cookie;
+      document.cookie = cookie + ";domain=" + window.location.hostname;
+    }
+
+    function clearCookie() {
+      var cookie = cookieName + "=;path=/;max-age=0";
       document.cookie = cookie;
       document.cookie = cookie + ";domain=" + window.location.hostname;
     }
@@ -47,34 +49,22 @@ const bootstrapScript = `
       return supported.find(function (item) { return item.split("-")[0].toLowerCase() === base; }) || "";
     }
 
-    var cookieValue = getCookie(cookieName);
-    if (cookieValue) {
-      try {
-        var parts = cookieValue.split("/");
-        var active = normalize(parts[parts.length - 1]);
-        if (active) {
-          window.localStorage.setItem(storageKey, active);
-          return;
-        }
-      } catch (error) {}
-    }
-
     try {
       var stored = window.localStorage.getItem(storageKey);
+      var isExplicit = window.localStorage.getItem(explicitKey) === "true";
       var normalizedStored = normalize(stored);
-      if (normalizedStored) {
+
+      if (isExplicit && normalizedStored) {
         setCookie("/" + defaultLanguage + "/" + normalizedStored);
         return;
       }
+
+      window.localStorage.removeItem(storageKey);
+      window.localStorage.removeItem(explicitKey);
     } catch (error) {}
 
-    var browserLanguage = normalize(window.navigator.language || window.navigator.userLanguage || "");
-    if (browserLanguage && browserLanguage !== defaultLanguage) {
-      setCookie("/" + defaultLanguage + "/" + browserLanguage);
-      try {
-        window.localStorage.setItem(storageKey, browserLanguage);
-      } catch (error) {}
-    }
+    clearCookie();
+    setCookie("/" + defaultLanguage + "/" + defaultLanguage);
   })();
 `;
 
