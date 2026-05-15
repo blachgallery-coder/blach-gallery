@@ -3,12 +3,25 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { defaultLanguage, translationLanguages } from "@/lib/translation-languages";
 
-const storageKey = "blach-gallery-language";
-const explicitSelectionKey = "blach-gallery-language-explicit";
+declare global {
+  interface Window {
+    __BLACH_GALLERY_TRANSLATE__?: {
+      clearLanguage: () => void;
+      getLanguage: () => string;
+      isExplicit: () => boolean;
+      setLanguage: (languageCode: string) => string;
+    };
+  }
+}
 
-function readGoogleTranslateCookie() {
-  if (typeof document === "undefined") {
+function readActiveLanguage() {
+  if (typeof window === "undefined") {
     return defaultLanguage.code;
+  }
+
+  const helperLanguage = window.__BLACH_GALLERY_TRANSLATE__?.getLanguage();
+  if (helperLanguage) {
+    return helperLanguage;
   }
 
   const match = document.cookie.match(/(?:^|;\s*)googtrans=([^;]+)/);
@@ -21,28 +34,86 @@ function readGoogleTranslateCookie() {
   return parts[parts.length - 1] || defaultLanguage.code;
 }
 
-function setGoogleTranslateCookie(languageCode: string) {
-  const cookieValue = `/${defaultLanguage.code}/${languageCode}`;
-  const serialized = `googtrans=${encodeURIComponent(cookieValue)};path=/;max-age=31536000`;
+function normalizeLanguage(languageCode: string) {
+  return (
+    translationLanguages.find((language) => language.code.toLowerCase() === languageCode.toLowerCase())?.code ??
+    defaultLanguage.code
+  );
+}
 
-  document.cookie = serialized;
-  document.cookie = `${serialized};domain=${window.location.hostname}`;
-  window.localStorage.setItem(storageKey, languageCode);
-  window.localStorage.setItem(explicitSelectionKey, "true");
+function dispatchNativeChange(select: HTMLSelectElement, value: string) {
+  select.value = value;
+  select.dispatchEvent(new Event("change", { bubbles: true }));
+}
+
+function waitForTranslateSelect(timeoutMs = 4000) {
+  return new Promise<HTMLSelectElement | null>((resolve) => {
+    const startedAt = Date.now();
+
+    function lookup() {
+      const select = document.querySelector(".goog-te-combo");
+      if (select instanceof HTMLSelectElement) {
+        resolve(select);
+        return;
+      }
+
+      if (Date.now() - startedAt >= timeoutMs) {
+        resolve(null);
+        return;
+      }
+
+      window.setTimeout(lookup, 120);
+    }
+
+    lookup();
+  });
+}
+
+async function applyLanguage(languageCode: string) {
+  const helper = window.__BLACH_GALLERY_TRANSLATE__;
+  const normalizedLanguage = normalizeLanguage(languageCode);
+
+  if (!helper) {
+    window.location.reload();
+    return;
+  }
+
+  if (normalizedLanguage === defaultLanguage.code) {
+    helper.clearLanguage();
+    window.location.reload();
+    return;
+  }
+
+  helper.setLanguage(normalizedLanguage);
+
+  const select = await waitForTranslateSelect();
+  if (!select) {
+    window.location.reload();
+    return;
+  }
+
+  if (select.value !== normalizedLanguage) {
+    dispatchNativeChange(select, normalizedLanguage);
+  }
 }
 
 export function LanguageSwitcher() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeLanguage, setActiveLanguage] = useState<string>(defaultLanguage.code);
+  const [isApplying, setIsApplying] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const cookieLanguage = readGoogleTranslateCookie();
-    const supportedLanguage =
-      translationLanguages.find((language) => language.code.toLowerCase() === cookieLanguage.toLowerCase())?.code ??
-      defaultLanguage.code;
+    function syncLanguage() {
+      setActiveLanguage(normalizeLanguage(readActiveLanguage()));
+    }
 
-    setActiveLanguage(supportedLanguage);
+    syncLanguage();
+    window.addEventListener("blach-translate-ready", syncLanguage);
+
+    return () => {
+      window.removeEventListener("blach-translate-ready", syncLanguage);
+    };
   }, []);
 
   useEffect(() => {
@@ -72,11 +143,18 @@ export function LanguageSwitcher() {
     [activeLanguage]
   );
 
-  function handleLanguageChange(languageCode: string) {
-    setActiveLanguage(languageCode);
+  async function handleLanguageChange(languageCode: string) {
+    const normalizedLanguage = normalizeLanguage(languageCode);
+
+    setActiveLanguage(normalizedLanguage);
     setIsOpen(false);
-    setGoogleTranslateCookie(languageCode);
-    window.location.reload();
+    setIsApplying(true);
+
+    try {
+      await applyLanguage(normalizedLanguage);
+    } finally {
+      setIsApplying(false);
+    }
   }
 
   return (
@@ -87,6 +165,7 @@ export function LanguageSwitcher() {
         aria-expanded={isOpen}
         aria-haspopup="menu"
         aria-label="Choisir la langue du site"
+        disabled={isApplying}
         onClick={() => setIsOpen((value) => !value)}
       >
         <span className="language-trigger-icon" aria-hidden="true">
@@ -97,7 +176,7 @@ export function LanguageSwitcher() {
             />
           </svg>
         </span>
-        <span className="language-trigger-label">{activeLabel}</span>
+        <span className="language-trigger-label">{isApplying ? "Chargement..." : activeLabel}</span>
         <span className={`language-trigger-caret${isOpen ? " is-open" : ""}`} aria-hidden="true">
           <svg viewBox="0 0 16 16" focusable="false">
             <path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
@@ -117,6 +196,7 @@ export function LanguageSwitcher() {
                 role="menuitemradio"
                 aria-checked={isActive}
                 className={`language-option${isActive ? " is-active" : ""}`}
+                disabled={isApplying}
                 onClick={() => handleLanguageChange(language.code)}
               >
                 <span>{language.label}</span>

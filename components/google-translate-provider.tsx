@@ -14,6 +14,12 @@ declare global {
       };
     };
     googleTranslateElementInit?: () => void;
+    __BLACH_GALLERY_TRANSLATE__?: {
+      clearLanguage: () => void;
+      getLanguage: () => string;
+      isExplicit: () => boolean;
+      setLanguage: (languageCode: string) => string;
+    };
   }
 }
 
@@ -28,16 +34,33 @@ const bootstrapScript = `
     var storageKey = "blach-gallery-language";
     var explicitKey = "blach-gallery-language-explicit";
 
+    function getCookieDomains() {
+      var hostname = window.location.hostname;
+      var domains = [hostname];
+      var parts = hostname.split(".");
+
+      if (parts.length > 2) {
+        domains.push("." + parts.slice(-2).join("."));
+      }
+
+      return domains;
+    }
+
+    function writeCookie(value, maxAge) {
+      var base = cookieName + "=" + encodeURIComponent(value) + ";path=/;max-age=" + maxAge + ";SameSite=Lax";
+      document.cookie = base;
+
+      getCookieDomains().forEach(function (domain) {
+        document.cookie = base + ";domain=" + domain;
+      });
+    }
+
     function setCookie(value) {
-      var cookie = cookieName + "=" + encodeURIComponent(value) + ";path=/;max-age=31536000";
-      document.cookie = cookie;
-      document.cookie = cookie + ";domain=" + window.location.hostname;
+      writeCookie(value, 31536000);
     }
 
     function clearCookie() {
-      var cookie = cookieName + "=;path=/;max-age=0";
-      document.cookie = cookie;
-      document.cookie = cookie + ";domain=" + window.location.hostname;
+      writeCookie("", 0);
     }
 
     function normalize(code) {
@@ -49,22 +72,65 @@ const bootstrapScript = `
       return supported.find(function (item) { return item.split("-")[0].toLowerCase() === base; }) || "";
     }
 
-    try {
-      var stored = window.localStorage.getItem(storageKey);
-      var isExplicit = window.localStorage.getItem(explicitKey) === "true";
-      var normalizedStored = normalize(stored);
+    function persist(languageCode, explicit) {
+      var normalizedLanguage = normalize(languageCode) || defaultLanguage;
+      setCookie("/" + defaultLanguage + "/" + normalizedLanguage);
 
-      if (isExplicit && normalizedStored) {
-        setCookie("/" + defaultLanguage + "/" + normalizedStored);
-        return;
+      try {
+        window.localStorage.setItem(storageKey, normalizedLanguage);
+        window.localStorage.setItem(explicitKey, explicit ? "true" : "false");
+      } catch (error) {}
+
+      return normalizedLanguage;
+    }
+
+    function clearLanguage() {
+      clearCookie();
+
+      try {
+        window.localStorage.removeItem(storageKey);
+        window.localStorage.removeItem(explicitKey);
+      } catch (error) {}
+
+      setCookie("/" + defaultLanguage + "/" + defaultLanguage);
+      return defaultLanguage;
+    }
+
+    function getStoredLanguage() {
+      try {
+        return normalize(window.localStorage.getItem(storageKey) || "") || defaultLanguage;
+      } catch (error) {
+        return defaultLanguage;
       }
+    }
 
-      window.localStorage.removeItem(storageKey);
-      window.localStorage.removeItem(explicitKey);
-    } catch (error) {}
+    function isExplicit() {
+      try {
+        return window.localStorage.getItem(explicitKey) === "true";
+      } catch (error) {
+        return false;
+      }
+    }
 
-    clearCookie();
-    setCookie("/" + defaultLanguage + "/" + defaultLanguage);
+    window.__BLACH_GALLERY_TRANSLATE__ = {
+      clearLanguage: clearLanguage,
+      getLanguage: getStoredLanguage,
+      isExplicit: isExplicit,
+      setLanguage: function (languageCode) {
+        if (!languageCode || normalize(languageCode) === defaultLanguage) {
+          return clearLanguage();
+        }
+
+        return persist(languageCode, true);
+      }
+    };
+
+    if (isExplicit()) {
+      persist(getStoredLanguage(), true);
+      return;
+    }
+
+    clearLanguage();
   })();
 `;
 
@@ -92,6 +158,8 @@ export function GoogleTranslateProvider() {
                 },
                 "google_translate_element"
               );
+
+              window.dispatchEvent(new CustomEvent("blach-translate-ready"));
             };
           `
         }}
