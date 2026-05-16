@@ -1,5 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
+import { FacebookIcon } from "@/components/facebook-icon";
+import { officialSpringExpoFacebookUrl } from "@/lib/collective";
 
 const eventFacts = [
   { label: "Lieu", value: "Dardilly-le-Bas" },
@@ -8,16 +9,7 @@ const eventFacts = [
   { label: "Adresse", value: "BLACH GALLERY - 11 place de l'eglise, 69570 Dardilly-le-Bas" }
 ];
 
-const eventArtists = [
-  "BLACH",
-  "Carotte",
-  "Art HM",
-  "Porcar Remi",
-  "Severine",
-  "Donier Michel",
-  "Alain Meraud",
-  "Jacques Berger"
-];
+const eventArtists = ["BLACH", "Carotte", "Art HM", "Porcar Remi", "Severine", "Donier Michel", "Alain Meraud", "Jacques Berger"];
 
 const eventHighlights = [
   "Initiation au graffiti a la bombe pour les plus grands",
@@ -132,14 +124,20 @@ export function SpringExpoShowcase() {
               </div>
 
               <div className="event-cta-row">
-                <Link href="/blog-fluxus" className="event-button event-button-primary">
-                  Voir l'evenement
-                </Link>
+                <a
+                  href={officialSpringExpoFacebookUrl}
+                  className="event-button event-button-primary"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FacebookIcon className="button-icon" />
+                  <span>Voir l'evenement Facebook officiel</span>
+                </a>
                 <a
                   href="https://www.google.com/maps/search/?api=1&query=BLACH+GALLERY+11+place+de+l%27eglise+69570+Dardilly-le-Bas"
                   className="event-button event-button-secondary"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   Venir a la galerie
                 </a>

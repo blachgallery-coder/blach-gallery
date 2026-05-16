@@ -1,5 +1,6 @@
-﻿import Image from "next/image";
+import Image from "next/image";
 import Link from "next/link";
+import { FacebookIcon } from "@/components/facebook-icon";
 import type { NewsEvent } from "@/lib/collective";
 
 export function NewsBoard({ events }: { events: NewsEvent[] }) {
@@ -15,9 +16,16 @@ export function NewsBoard({ events }: { events: NewsEvent[] }) {
             <h2>{event.title}</h2>
             <p className="news-card-venue">{event.venue}</p>
             <p>{event.excerpt}</p>
-            <Link href={event.href} className="news-card-link">
-              {event.ctaLabel}
-            </Link>
+            {event.external ? (
+              <a href={event.href} className="news-card-link news-card-link-facebook" target="_blank" rel="noopener noreferrer">
+                <FacebookIcon className="button-icon" />
+                <span>{event.ctaLabel}</span>
+              </a>
+            ) : (
+              <Link href={event.href} className="news-card-link">
+                {event.ctaLabel}
+              </Link>
+            )}
           </div>
         </article>
       ))}

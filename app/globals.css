@@ -1146,3 +1146,36 @@ body > .skiptranslate {
     width: 100%;
   }
 }
+
+.button-icon {
+  width: 1rem;
+  height: 1rem;
+  flex: 0 0 auto;
+}
+
+.news-card-link-facebook,
+.footer-social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.news-card-link-facebook {
+  background: linear-gradient(135deg, #1877f2, #4ea3ff);
+}
+
+.page-cta-row {
+  margin-top: 1.25rem;
+}
+
+.footer-social-link {
+  margin-top: 0.85rem;
+  color: var(--accent-dark);
+  font-weight: 700;
+}
+
+.footer-social-link:hover,
+.footer-social-link:focus-visible {
+  color: var(--accent);
+  outline: none;
+}

@@ -1,23 +1,29 @@
 import type { Metadata } from "next";
+import { FacebookIcon } from "@/components/facebook-icon";
 import { NewsBoard } from "@/components/news-board";
-import { newsEvents } from "@/lib/collective";
+import { newsEvents, officialSpringExpoFacebookUrl } from "@/lib/collective";
 
 export const metadata: Metadata = {
-  title: "News et événements BLACH GALLERY",
-  description:
-    "Retrouvez les news, expositions, vernissages, performances live et annonces du collectif BLACH GALLERY."
+  title: "News et evenements BLACH GALLERY",
+  description: "Retrouvez les news, expositions, vernissages, performances live et annonces du collectif BLACH GALLERY."
 };
 
 export default function BlogFluxusPage() {
   return (
     <section className="page-shell container news-page-shell">
       <div>
-        <p className="eyebrow">News & événements</p>
+        <p className="eyebrow">News & evenements</p>
         <h1 className="page-title">Le carnet vivant de la BLACH GALLERY</h1>
         <p className="page-intro">
-          Une base éditoriale moderne pour suivre les expos, vernissages, performances live, projets muraux et temps
+          Une base editoriale moderne pour suivre les expos, vernissages, performances live, projets muraux et temps
           forts du collectif.
         </p>
+        <div className="page-cta-row">
+          <a href={officialSpringExpoFacebookUrl} className="news-card-link news-card-link-facebook" target="_blank" rel="noopener noreferrer">
+            <FacebookIcon className="button-icon" />
+            <span>Voir l'evenement Facebook officiel</span>
+          </a>
+        </div>
       </div>
       <NewsBoard events={newsEvents} />
     </section>
