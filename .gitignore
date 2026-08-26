@@ -29,3 +29,4 @@ export produit csv
 
 # exception : on garde les images du site dans public
 !public/**
+.vercel

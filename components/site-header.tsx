@@ -18,6 +18,11 @@ export function SiteHeader() {
           <LanguageSwitcher />
         </nav>
       </div>
+      <div className="site-status-banner">
+        <div className="container">
+          <p>Site en construction Fluxus, mise a jour en cours.</p>
+        </div>
+      </div>
     </header>
   );
 }

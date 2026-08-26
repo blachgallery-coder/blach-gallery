@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { ArtworkMasonry } from "@/components/artwork-masonry";
 import { NewsBoard } from "@/components/news-board";
-import { SpringExpoShowcase } from "@/components/spring-expo-showcase";
 import { featuredArtworks, homepageActions, newsEvents } from "@/lib/collective";
 import { themePages } from "@/lib/data";
 
@@ -36,7 +35,11 @@ function HomeActionLink({
 export default function HomePage() {
   return (
     <>
-      <SpringExpoShowcase />
+      <section className="section section-tight">
+        <div className="container" style={{ textAlign: "center" }}>
+          <p>BLACH GALLERY prépare la rentrée. Réouverture le mercredi 26 août 2026.</p>
+        </div>
+      </section>
 
       <section className="hero hero-premium">
         <div className="container hero-grid hero-grid-premium">

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import { FacebookIcon } from "@/components/facebook-icon";
 import { NewsBoard } from "@/components/news-board";
-import { newsEvents, officialSpringExpoFacebookUrl } from "@/lib/collective";
+import { newsEvents } from "@/lib/collective";
 
 export const metadata: Metadata = {
   title: "News et evenements BLACH GALLERY",

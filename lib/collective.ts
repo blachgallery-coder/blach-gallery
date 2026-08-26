@@ -42,11 +42,13 @@ export type NewsEvent = {
 export const officialSpringExpoFacebookUrl =
   "https://www.facebook.com/events/892521603862140/?acontext=%7B%22event_action_history%22%3A[%7B%22surface%22%3A%22home%22%7D%2C%7B%22mechanism%22%3A%22search_results%22%2C%22surface%22%3A%22search%22%7D]%2C%22ref_notif_type%22%3Anull%7D";
 
+export const officialShopUrl = "https://shop.blachgallery.com/";
+
 export const homepageActions: HeroAction[] = [
-  { label: "Shop en ligne", href: "https://artofblach.patternbyetsy.com/shop", tone: "orange", external: true },
+  { label: "SHOP EN LIGNE", href: "https://shop.blachgallery.com/", tone: "orange", external: true },
   { label: "Encheres en ligne", href: "https://www.catawiki.com/fr/u/7440221-blachgallery", tone: "pink", external: true },
   { label: "Decouvrir le collectif", href: "/artistes-du-collectif", tone: "yellow" },
-  { label: "Fresque murale", href: "/fresque-graffiti", tone: "green" },
+  { label: "Fresque murale", href: "https://www.maxletagueur.com/", tone: "green", external: true },
   { label: "News & evenements", href: "/blog-fluxus", tone: "blue" }
 ];
 
@@ -178,18 +180,6 @@ export const collectiveArtists: CollectiveArtist[] = [
 ];
 
 export const newsEvents: NewsEvent[] = [
-  {
-    slug: "expo-printemps-facebook",
-    title: "Expo de Printemps - BLACH GALLERY",
-    dateLabel: "23 mai - 30 juin 2026",
-    venue: "Dardilly-le-Bas / vernissage samedi 23 mai",
-    excerpt:
-      "Paysages lyonnais revisites facon street art, programmation live et rendez-vous collectif a retrouver sur l'evenement Facebook officiel.",
-    image: "/images/expo-printemps/affiche-expo-printemps-2026.png",
-    ctaLabel: "Voir l'evenement Facebook officiel",
-    href: officialSpringExpoFacebookUrl,
-    external: true
-  },
   {
     slug: "live-performance",
     title: "Performance live & peinture en direct",

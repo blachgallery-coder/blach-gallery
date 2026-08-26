@@ -93,7 +93,7 @@ export const products: Product[] = [
     ],
     shipping: ["Expédition gratuite France", "Tube renforcé sécurisé", "Assurance et suivi inclus"],
     ctaLabel: "Voir sur le shop",
-    ctaHref: "https://artofblach.patternbyetsy.com/listing/4332245877/lyon-feat-carotte-xl-limited-edition",
+    ctaHref: "https://shop.blachgallery.com/",
     seoDescription:
       "Cette édition limitée grand format réunit BLACH® (Maxime Blachère) et Carotte Officiel autour d'une vision artistique explosive de Lyon. Entre graffiti, street art contemporain, culture urbaine et univers Fluxus, cette collaboration célèbre l'énergie créative lyonnaise dans une œuvre colorée, moderne et immédiatement reconnaissable."
   },
@@ -213,3 +213,4 @@ export const getProductsByTheme = (slug: string) =>
 
 export const getThemeBySlug = (slug: string) =>
   themePages.find((theme) => theme.slug === slug);
+

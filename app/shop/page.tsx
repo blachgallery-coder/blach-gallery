@@ -1,9 +1,9 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { SectionHeading } from "@/components/section-heading";
 import { ShopFilters } from "@/components/shop-filters";
+import { officialShopUrl } from "@/lib/collective";
 import { products } from "@/lib/data";
 
-const etsyShopUrl = "https://artofblach.patternbyetsy.com/shop";
 
 export const metadata: Metadata = {
   title: "Shop tableaux street art et art moderne",
@@ -22,7 +22,7 @@ export default function ShopPage() {
           lecture rapide des prix et des fiches optimisées SEO.
         </p>
         <div className="hero-actions">
-          <a href={etsyShopUrl} className="button" target="_blank" rel="noreferrer">
+          <a href={officialShopUrl} className="button" target="_blank" rel="noreferrer">
             SHOP EN LIGNE
           </a>
         </div>
@@ -35,3 +35,4 @@ export default function ShopPage() {
     </section>
   );
 }
+
