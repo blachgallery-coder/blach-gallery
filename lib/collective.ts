@@ -39,9 +39,6 @@ export type NewsEvent = {
   external?: boolean;
 };
 
-export const officialSpringExpoFacebookUrl =
-  "https://www.facebook.com/events/892521603862140/?acontext=%7B%22event_action_history%22%3A[%7B%22surface%22%3A%22home%22%7D%2C%7B%22mechanism%22%3A%22search_results%22%2C%22surface%22%3A%22search%22%7D]%2C%22ref_notif_type%22%3Anull%7D";
-
 export const officialShopUrl = "https://shop.blachgallery.com/";
 
 export const homepageActions: HeroAction[] = [

@@ -1,6 +1,4 @@
 import Link from "next/link";
-import { FacebookIcon } from "@/components/facebook-icon";
-import { officialSpringExpoFacebookUrl } from "@/lib/collective";
 
 export function SiteFooter() {
   return (
@@ -21,10 +19,6 @@ export function SiteFooter() {
           <Link href="/performances-artistiques">Performances artistiques</Link>
           <Link href="/theme/street-art-lyon">Street art Lyon</Link>
           <Link href="/theme/pop-art">Pop art</Link>
-          <a href={officialSpringExpoFacebookUrl} className="footer-social-link" target="_blank" rel="noopener noreferrer">
-            <FacebookIcon className="button-icon" />
-            <span>Evenement Facebook officiel</span>
-          </a>
         </div>
       </div>
     </footer>

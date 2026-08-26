@@ -17,12 +17,6 @@ export default function BlogFluxusPage() {
           Une base editoriale moderne pour suivre les expos, vernissages, performances live, projets muraux et temps
           forts du collectif.
         </p>
-        <div className="page-cta-row">
-          <a href={officialSpringExpoFacebookUrl} className="news-card-link news-card-link-facebook" target="_blank" rel="noopener noreferrer">
-            <FacebookIcon className="button-icon" />
-            <span>Voir l'evenement Facebook officiel</span>
-          </a>
-        </div>
       </div>
       <NewsBoard events={newsEvents} />
     </section>
