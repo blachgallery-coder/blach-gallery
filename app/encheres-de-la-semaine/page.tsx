@@ -47,8 +47,8 @@ export default function EncheresDeLaSemainePage() {
           réserve.
         </p>
         <div className="hero-actions">
-          <a href={catawikiUrl} className="button" target="_blank" rel="noreferrer">
-            👉 Voir les enchères sur Catawiki
+          <a href={catawikiUrl} className="btn btn-dark" target="_blank" rel="noreferrer">
+            Découvrir les enchères
           </a>
         </div>
       </div>

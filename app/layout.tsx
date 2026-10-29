@@ -8,11 +8,11 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.blachgallery.com"),
   title: {
-    default: "BLACH GALLERY | Galerie en ligne street art et art moderne",
+    default: "BLACH GALLERY | Galerie d'art contemporain & collectif d'artistes lyonnais",
     template: "%s | BLACH GALLERY"
   },
   description:
-    "BLACH GALLERY, galerie en ligne multi-artistes pour acheter des tableaux street art, pop art, manga et art moderne.",
+    "BLACH GALLERY, galerie d'art contemporain et collectif d'artistes lyonnais à Dardilly : originaux, sculptures, éditions limitées, enchères et fresques murales.",
   alternates: {
     canonical: "/"
   },
@@ -32,15 +32,15 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     siteName: "BLACH GALLERY",
     url: "https://www.blachgallery.com",
-    title: "BLACH GALLERY | Galerie en ligne street art et art moderne",
+    title: "BLACH GALLERY | Galerie d'art contemporain & collectif d'artistes lyonnais",
     description:
-      "BLACH GALLERY, galerie en ligne multi-artistes pour acheter des tableaux street art, pop art, manga et art moderne."
+      "BLACH GALLERY, galerie d'art contemporain et collectif d'artistes lyonnais à Dardilly : originaux, sculptures, éditions limitées, enchères et fresques murales."
   },
   twitter: {
     card: "summary_large_image",
-    title: "BLACH GALLERY | Galerie en ligne street art et art moderne",
+    title: "BLACH GALLERY | Galerie d'art contemporain & collectif d'artistes lyonnais",
     description:
-      "BLACH GALLERY, galerie en ligne multi-artistes pour acheter des tableaux street art, pop art, manga et art moderne."
+      "BLACH GALLERY, galerie d'art contemporain et collectif d'artistes lyonnais à Dardilly : originaux, sculptures, éditions limitées, enchères et fresques murales."
   }
 };
 

@@ -8,14 +8,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = [
     "",
     "/shop",
-    "/artistes",
     "/artistes-du-collectif",
+    "/expositions",
+    "/newsletter",
     "/atelier-graffiti",
     "/bio-contact",
     "/blog",
-    "/blog-fluxus",
     "/encheres-de-la-semaine",
-    "/fresque-graffiti",
     "/performances-artistiques"
   ].map((path) => ({
     url: `${baseUrl}${path}`,
