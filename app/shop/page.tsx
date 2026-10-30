@@ -1,38 +1,32 @@
 import type { Metadata } from "next";
-import { SectionHeading } from "@/components/section-heading";
-import { ShopFilters } from "@/components/shop-filters";
-import { officialShopUrl } from "@/lib/collective";
-import { products } from "@/lib/data";
-
+import { ArtworkGrid } from "@/components/artwork-card";
+import { SHOP_URL, artworks } from "@/lib/gallery";
 
 export const metadata: Metadata = {
-  title: "Shop tableaux street art et art moderne",
+  title: "Les œuvres — originaux, sculptures et éditions limitées",
   description:
-    "Achetez des tableaux classés par thématique avec filtres par prix, style, artiste et format sur BLACH GALLERY."
+    "Œuvres originales, sculptures et éditions limitées des artistes de BLACH GALLERY (BLACH®, Bonté, La Carotte, Art HM), disponibles sur le shop.",
+  alternates: { canonical: "/shop" }
 };
+
+const sorted = [...artworks].sort((a, b) => b.price - a.price);
 
 export default function ShopPage() {
   return (
-    <section className="page-shell container">
-      <div>
-        <p className="eyebrow">Le coeur du business</p>
-        <h1 className="page-title">Shop BLACH GALLERY</h1>
-        <p className="page-intro">
-          Le shop centralise les tableaux par thématique et simplifie l'achat avec des filtres utiles, une
-          lecture rapide des prix et des fiches optimisées SEO.
+    <section className="page container">
+      <header className="page-head">
+        <p className="kicker">Les œuvres</p>
+        <h1>Œuvres disponibles</h1>
+        <p className="lead">
+          Originaux, sculptures et éditions limitées. Chaque œuvre renvoie à sa fiche sur le shop officiel.
         </p>
-        <div className="hero-actions">
-          <a href={officialShopUrl} className="button" target="_blank" rel="noreferrer">
-            SHOP EN LIGNE
+        <div className="actions">
+          <a href={SHOP_URL} className="btn btn-dark" target="_blank" rel="noopener noreferrer">
+            Accéder au shop
           </a>
         </div>
-      </div>
-      <SectionHeading
-        title="Trouvez la bonne oeuvre selon votre budget, votre style et votre artiste."
-        description="Le moteur de filtres est conçu pour les visiteurs à intention forte, sur desktop comme sur mobile."
-      />
-      <ShopFilters products={products} />
+      </header>
+      <ArtworkGrid items={sorted} />
     </section>
   );
 }
-

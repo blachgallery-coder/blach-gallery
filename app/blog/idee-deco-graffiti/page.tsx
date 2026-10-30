@@ -17,7 +17,7 @@ export default function IdeeDecoGraffitiPage() {
         <h1 className="page-title">{post.title}</h1>
         <p className="page-intro">{post.content}</p>
         <p className="page-intro">
-          Pour aller plus loin, découvrez les <Link href="/artistes">artistes</Link> et la page{" "}
+          Pour aller plus loin, découvrez les <Link href="/artistes-du-collectif">artistes</Link> et la page{" "}
           <Link href="/theme/pop-art">pop art</Link>.
         </p>
       </div>

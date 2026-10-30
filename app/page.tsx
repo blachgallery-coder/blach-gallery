@@ -1,129 +1,289 @@
+import type { Metadata } from "next";
 import Link from "next/link";
-import { ArtworkMasonry } from "@/components/artwork-masonry";
-import { NewsBoard } from "@/components/news-board";
-import { featuredArtworks, homepageActions, newsEvents } from "@/lib/collective";
-import { themePages } from "@/lib/data";
+import { ArtworkCard } from "@/components/artwork-card";
+import { ArtworkImage } from "@/components/artwork-image";
+import { NewsletterForm } from "@/components/newsletter-form";
+import {
+  CATAWIKI_URL,
+  FRESQUES_URL,
+  GALLERY_ADDRESS,
+  SHOP_URL,
+  featuredHandles,
+  formatPrice,
+  getArtwork,
+  productUrl
+} from "@/lib/gallery";
 
-function HomeActionLink({
-  href,
-  label,
-  tone,
-  external
-}: {
-  href: string;
-  label: string;
-  tone: "orange" | "pink" | "yellow" | "green" | "blue";
-  external?: boolean;
-}) {
-  const className = `hero-pop-button hero-pop-button-${tone}`;
+export const metadata: Metadata = {
+  title: { absolute: "BLACH GALLERY | Galerie d'art contemporain & collectif d'artistes lyonnais — Dardilly" },
+  description:
+    "BLACH GALLERY, galerie d'art contemporain et collectif d'artistes lyonnais à Dardilly : originaux, sculptures, éditions limitées, enchères Catawiki et fresques murales.",
+  alternates: { canonical: "/" }
+};
 
-  if (external) {
-    return (
-      <a href={href} className={className} target="_blank" rel="noreferrer">
-        {label}
-      </a>
-    );
-  }
+const hero = getArtwork("la-fete-de-la-couleur-port-sete-2052-blach");
+const shopVisual = getArtwork("avatar-experience-baril");
+const auctionVisual = getArtwork("new-york-gundam-vs-sangoku");
+const collectiveWorks = [
+  getArtwork("pure-energy-bonte-street-art-lyon-original-xxl"),
+  getArtwork("carotte-spirale-endless-loop-serie-ardoise-la-carotte"),
+  getArtwork("lion-king"),
+  getArtwork("new-york-bay-2025-blach®")
+];
+const featured = featuredHandles.map(getArtwork);
 
-  return (
-    <Link href={href} className={className}>
-      {label}
-    </Link>
-  );
-}
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ArtGallery",
+  name: "BLACH GALLERY",
+  url: "https://www.blachgallery.com",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: GALLERY_ADDRESS.street,
+    postalCode: GALLERY_ADDRESS.postalCode,
+    addressLocality: GALLERY_ADDRESS.city,
+    addressCountry: "FR"
+  },
+  founder: { "@type": "Person", name: "Maxime Blachère" },
+  sameAs: [SHOP_URL, CATAWIKI_URL, FRESQUES_URL]
+};
 
 export default function HomePage() {
   return (
     <>
-      <section className="section section-tight">
-        <div className="container" style={{ textAlign: "center" }}>
-          <p>BLACH GALLERY prépare la rentrée. Réouverture le mercredi 26 août 2026.</p>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
+      {/* 1 — HERO */}
+      <section className="hero" aria-labelledby="hero-title">
+        <a className="hero-media" href={productUrl(hero.handle)} target="_blank" rel="noopener noreferrer">
+          <ArtworkImage
+            src={hero.image}
+            alt={`${hero.title} — ${hero.artist}`}
+            width={hero.width}
+            height={hero.height}
+            sizes="100vw"
+            priority
+          />
+        </a>
+        <div className="container hero-copy">
+          <h1 id="hero-title">BLACH GALLERY</h1>
+          <p className="hero-sub">Galerie d&apos;art contemporain &amp; collectif d&apos;artistes lyonnais</p>
+          <div className="actions">
+            <Link href="/shop" className="btn btn-dark">
+              Découvrir les œuvres
+            </Link>
+            <a href="#visiter" className="btn btn-outline">
+              Visiter la galerie
+            </a>
+          </div>
+          <p className="hero-credit">
+            {hero.artist}, <em>{hero.title}</em> — {hero.type}, {formatPrice(hero.price)}
+          </p>
         </div>
       </section>
 
-      <section className="hero hero-premium">
-        <div className="container hero-grid hero-grid-premium">
-          <div className="hero-card hero-card-premium">
-            <p className="eyebrow">Collectif artistique contemporain</p>
-            <h1>Bienvenue a la BLACH GALLERY</h1>
-            <p className="hero-lead">La BLACH GALLERY est un collectif d'artistes fonde par Maxime Blachere.</p>
-            <p>
-              Une galerie en ligne vivante, pop et internationale, pensee pour faire dialoguer street art,
-              culture visuelle, gestes libres et signatures singulieres dans un meme accrochage.
-            </p>
-            <div className="hero-actions hero-actions-rainbow">
-              {homepageActions.map((action) => (
-                <HomeActionLink key={action.label} {...action} />
-              ))}
-            </div>
-          </div>
-          <div className="hero-stage-card">
-            <div className="hero-stage-copy">
-              <p className="eyebrow">Edition signature</p>
-              <h2>Lyon feat Carotte XL</h2>
-              <p>
-                Le point d'ancrage du collectif : un format manifeste, urbain, colore et frontal qui donne tout de
-                suite le ton BLACH GALLERY.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section section-tight">
+      {/* 2 — ŒUVRES À LA UNE */}
+      <section className="section" aria-labelledby="une-title">
         <div className="container">
-          <div className="section-heading section-heading-compact">
-            <p className="eyebrow">Selection visuelle</p>
-            <h2>Voici quelques-uns de nos bangers</h2>
-          </div>
-          <ArtworkMasonry items={featuredArtworks} />
-        </div>
-      </section>
-
-      <section className="section section-tight">
-        <div className="container home-editorial-grid">
-          <Link href="/artistes-du-collectif" className="editorial-card editorial-card-collectif">
-            <p className="eyebrow">Collectif</p>
-            <h3>Des artistes, des styles, une scene en mouvement.</h3>
-            <p>Entrez dans la BLACH GALLERY comme dans un accrochage vivant, avec des profils plus humains et plus incarnes.</p>
-          </Link>
-          <Link href="/fresque-graffiti" className="editorial-card editorial-card-fresque">
-            <p className="eyebrow">Mur & espace</p>
-            <h3>Fresques murales, activations visuelles et projets sur mesure.</h3>
-            <p>Pour les lieux qui veulent une presence artistique forte, du geste spontane au grand format premium.</p>
-          </Link>
-          <Link href="/blog-fluxus" className="editorial-card editorial-card-news">
-            <p className="eyebrow">News</p>
-            <h3>Expos, vernissages, performances live et carnet de bord.</h3>
-            <p>Une porte d'entree editoriale pour suivre l'energie du collectif et ses prochains rendez-vous.</p>
-          </Link>
-        </div>
-      </section>
-
-      <section className="section section-tight">
-        <div className="container">
-          <div className="section-heading section-heading-compact">
-            <p className="eyebrow">News & evenements</p>
-            <h2>La galerie bouge aussi hors cadre.</h2>
-          </div>
-          <NewsBoard events={newsEvents.slice(0, 3)} />
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container">
-          <div className="section-heading section-heading-compact">
-            <p className="eyebrow">Themes</p>
-            <h2>Univers street, pop et contemporain pour continuer la visite.</h2>
-          </div>
-          <div className="triple-grid">
-            {themePages.map((theme) => (
-              <Link key={theme.slug} href={`/theme/${theme.slug}`} className="info-card info-card-vivid">
-                <p className="eyebrow">{theme.label}</p>
-                <h3>{theme.h1}</h3>
-                <p>{theme.intro.slice(0, 145)}...</p>
-              </Link>
+          <header className="section-head">
+            <p className="kicker">Sélection</p>
+            <h2 id="une-title">Œuvres à la une</h2>
+          </header>
+          <div className="artwork-grid">
+            {featured.map((artwork) => (
+              <ArtworkCard key={artwork.handle} artwork={artwork} />
             ))}
+          </div>
+          <div className="actions actions-center">
+            <a href={SHOP_URL} className="btn btn-outline" target="_blank" rel="noopener noreferrer">
+              Toutes les œuvres sur le shop
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* 3 — LE COLLECTIF */}
+      <section className="section section-alt" aria-labelledby="collectif-title">
+        <div className="container split">
+          <div className="split-text">
+            <p className="kicker">Le collectif</p>
+            <h2 id="collectif-title">Un collectif d&apos;artistes indépendants</h2>
+            <p>
+              Fondée par Maxime Blachère (BLACH®), BLACH GALLERY rassemble des artistes locaux autour d&apos;une vision
+              libre, contemporaine et accessible de l&apos;art.
+            </p>
+            <p>
+              Le collectif réunit notamment BLACH®, La Carotte, Pascal Nègre, Art HM et Bonté, ainsi que des artistes
+              issus de la peinture traditionnelle et d&apos;anciens membres de l&apos;association Les Arts de La
+              Tour-de-Salvagny.
+            </p>
+            <p>
+              Peinture, street art, sculpture, photographie et esprit Fluxus se rencontrent dans une galerie
+              indépendante à Dardilly, aux portes de Lyon.
+            </p>
+            <div className="actions">
+              <Link href="/artistes-du-collectif" className="btn btn-dark">
+                Découvrir le collectif
+              </Link>
+            </div>
+          </div>
+          <div className="mosaic">
+            {collectiveWorks.map((artwork) => (
+              <a
+                key={artwork.handle}
+                href={productUrl(artwork.handle)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mosaic-item"
+              >
+                <ArtworkImage
+                  src={artwork.image}
+                  alt={`${artwork.title} — ${artwork.artist}`}
+                  width={artwork.width}
+                  height={artwork.height}
+                  sizes="(max-width: 900px) 50vw, 25vw"
+                />
+                <span>{artwork.artist}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4 — SHOP */}
+      <section className="section" aria-labelledby="shop-title">
+        <div className="container split split-reverse">
+          <a className="feature-media" href={productUrl(shopVisual.handle)} target="_blank" rel="noopener noreferrer">
+            <ArtworkImage
+              src={shopVisual.image}
+              alt={`${shopVisual.title} — ${shopVisual.artist}`}
+              width={shopVisual.width}
+              height={shopVisual.height}
+              sizes="(max-width: 900px) 100vw, 50vw"
+            />
+          </a>
+          <div className="split-text">
+            <p className="kicker">Shop en ligne</p>
+            <h2 id="shop-title">Acheter une œuvre</h2>
+            <p>Originaux, sculptures et éditions limitées. Découvrez notre sélection d&apos;œuvres disponibles en ligne.</p>
+            <div className="actions">
+              <a href={SHOP_URL} className="btn btn-dark" target="_blank" rel="noopener noreferrer">
+                Accéder au shop
+              </a>
+            </div>
+            <p className="caption">
+              {shopVisual.artist}, <em>{shopVisual.title}</em> — {formatPrice(shopVisual.price)}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 — ENCHÈRES */}
+      <section className="section section-alt" aria-labelledby="encheres-title">
+        <div className="container split">
+          <div className="split-text">
+            <p className="kicker">Catawiki</p>
+            <h2 id="encheres-title">Enchères en ligne</h2>
+            <p>
+              Chaque semaine, BLACH GALLERY propose sur Catawiki des éditions limitées et, ponctuellement, des œuvres
+              originales.
+            </p>
+            <p>Découvrez nos créations et tentez de les acquérir aux enchères.</p>
+            <div className="actions">
+              <a href={CATAWIKI_URL} className="btn btn-dark" target="_blank" rel="noopener noreferrer">
+                Découvrir les enchères
+              </a>
+            </div>
+          </div>
+          <a className="feature-media" href={CATAWIKI_URL} target="_blank" rel="noopener noreferrer">
+            <ArtworkImage
+              src={auctionVisual.image}
+              alt={`${auctionVisual.title} — ${auctionVisual.artist}`}
+              width={auctionVisual.width}
+              height={auctionVisual.height}
+              sizes="(max-width: 900px) 100vw, 50vw"
+            />
+          </a>
+        </div>
+      </section>
+
+      {/* 6 — FRESQUES */}
+      <section className="section section-dark" aria-labelledby="fresques-title">
+        <div className="container narrow center">
+          <p className="kicker">Max le Tagueur</p>
+          <h2 id="fresques-title">Fresques murales &amp; live painting</h2>
+          <p>
+            Notre collectif se déplace pour réaliser des fresques murales, des créations participatives et des
+            performances artistiques en direct.
+          </p>
+          <p>
+            Entreprises, collectivités, événements et particuliers : découvrez toutes nos réalisations sur Max le
+            Tagueur.
+          </p>
+          <div className="actions actions-center">
+            <a href={FRESQUES_URL} className="btn btn-light" target="_blank" rel="noopener noreferrer">
+              Découvrir nos fresques
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* 7 — EXPOSITION */}
+      <section className="section" aria-labelledby="expo-title">
+        <div className="container narrow center">
+          <p className="kicker">Prochaine exposition</p>
+          <p className="date">14 novembre 2026</p>
+          <h2 id="expo-title">Exposition street art</h2>
+          <p>
+            Rendez-vous à BLACH GALLERY pour une exposition exceptionnelle réunissant des artistes locaux, nationaux et
+            internationaux.
+          </p>
+          <p>Des surprises, des œuvres inédites et des rencontres artistiques dans un véritable lieu d&apos;exposition.</p>
+          <address>
+            {GALLERY_ADDRESS.street}
+            <br />
+            {GALLERY_ADDRESS.postalCode} {GALLERY_ADDRESS.city}
+          </address>
+          <div className="actions actions-center">
+            <Link href="/expositions" className="btn btn-outline">
+              Toutes les expositions
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 8 — NEWSLETTER */}
+      <section className="section section-alt" aria-labelledby="newsletter-title">
+        <div className="container narrow">
+          <header className="section-head center">
+            <p className="kicker">Newsletter</p>
+            <h2 id="newsletter-title">Restez informés</h2>
+            <p>Recevez nos invitations aux vernissages, nos événements et nos annonces d&apos;enchères exceptionnelles.</p>
+          </header>
+          <NewsletterForm />
+        </div>
+      </section>
+
+      {/* 9 — VISITER */}
+      <section className="section" id="visiter" aria-labelledby="visiter-title">
+        <div className="container narrow center">
+          <p className="kicker">Visiter la galerie</p>
+          <h2 id="visiter-title">Rendez-vous à Dardilly</h2>
+          <address className="address-block">
+            <strong>{GALLERY_ADDRESS.name}</strong>
+            <br />
+            {GALLERY_ADDRESS.street}
+            <br />
+            {GALLERY_ADDRESS.postalCode} {GALLERY_ADDRESS.city}
+          </address>
+          <p className="muted">Horaires d&apos;ouverture : nous contacter avant votre visite.</p>
+          <div className="actions actions-center">
+            <a href={GALLERY_ADDRESS.mapsUrl} className="btn btn-dark" target="_blank" rel="noopener noreferrer">
+              Itinéraire Google Maps
+            </a>
+            <Link href="/bio-contact" className="btn btn-outline">
+              Contact
+            </Link>
           </div>
         </div>
       </section>

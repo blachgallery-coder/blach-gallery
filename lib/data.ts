@@ -1,22 +1,3 @@
-export type Product = {
-  slug: string;
-  title: string;
-  theme: string;
-  style: string;
-  artist: string;
-  format: string;
-  price: number;
-  image: string;
-  alt: string;
-  isBestSeller?: boolean;
-  isNew?: boolean;
-  subtitle?: string;
-  features?: string[];
-  shipping?: string[];
-  ctaLabel?: string;
-  ctaHref?: string;
-  seoDescription: string;
-};
 
 export type ThemePage = {
   slug: string;
@@ -25,16 +6,6 @@ export type ThemePage = {
   intro: string;
 };
 
-export type Artist = {
-  slug: string;
-  name: string;
-  bio: string;
-  image: string;
-  specialties: string[];
-};
-
-const createSeoDescription = (theme: string, artist: string, format: string) =>
-  `Ce tableau street art moderne autour de la thématique ${theme} a été pensé pour les amateurs d'art contemporain qui veulent une œuvre expressive, lisible et facile à intégrer dans un intérieur premium. Réalisée par ${artist}, la composition combine énergie urbaine, contraste visuel et travail de matière pour apporter une présence forte dans un salon, une entrée, un bureau ou un espace professionnel. Le format ${format} crée un vrai impact décoratif tout en gardant l'équilibre global de la pièce. Chez BLACH GALLERY, nous sélectionnons des créations multi-artistes pour offrir une collection cohérente, émotionnelle et singulière.`;
 
 export const themePages: ThemePage[] = [
   {
@@ -67,101 +38,9 @@ export const themePages: ThemePage[] = [
   }
 ];
 
-export const products: Product[] = [
-  {
-    slug: "lyon-feat-carotte-xl",
-    title: "Lyon feat Carotte XL",
-    theme: "street-art-lyon",
-    style: "",
-    artist: "",
-    format: "",
-    price: 200,
-    image: "/images/home/street-art-blach-gallery.webp",
-    alt: "tableau street art moderne édition limitée graffiti art urbain Lyon",
-    isBestSeller: true,
-    subtitle: "Limited edition signed and numbered by Blach® and Carotte Officiel",
-    features: [
-      "Édition limitée à 30 exemplaires",
-      "Signée et numérotée à la main",
-      "Certificat d'authenticité fourni",
-      "Toile premium 450g ultra résistante",
-      "Infroissable",
-      "Indéchirable",
-      "Norme anti-feu B1",
-      "Marges prévues pour montage sur châssis",
-      "Châssis et cadre non fournis"
-    ],
-    shipping: ["Expédition gratuite France", "Tube renforcé sécurisé", "Assurance et suivi inclus"],
-    ctaLabel: "Voir sur le shop",
-    ctaHref: "https://shop.blachgallery.com/",
-    seoDescription:
-      "Cette édition limitée grand format réunit BLACH® (Maxime Blachère) et Carotte Officiel autour d'une vision artistique explosive de Lyon. Entre graffiti, street art contemporain, culture urbaine et univers Fluxus, cette collaboration célèbre l'énergie créative lyonnaise dans une œuvre colorée, moderne et immédiatement reconnaissable."
-  },
-  {
-    slug: "tableau-pop-art-moderne",
-    title: "Tableau street art moderne - pop art",
-    theme: "pop-art",
-    style: "Pop art",
-    artist: "La Carotte",
-    format: "80 x 120 cm",
-    price: 1290,
-    image: "/images/home/pop-art-blach-gallery.webp",
-    alt: "tableau street art moderne artiste BLACH Lyon",
-    isBestSeller: true,
-    isNew: true,
-    seoDescription: createSeoDescription("pop art", "La Carotte", "80 x 120 cm")
-  },
-  {
-    slug: "tableau-manga-urbain",
-    title: "Tableau street art moderne - portrait pop urbain",
-    theme: "manga",
-    style: "Portrait pop urbain",
-    artist: "ArtHM",
-    format: "90 x 90 cm",
-    price: 1190,
-    image: "/images/home/street-art-carotte-bio-number-one-blach-gallery.webp",
-    alt: "tableau street art moderne artiste BLACH Lyon",
-    isNew: true,
-    seoDescription: createSeoDescription("portrait pop urbain", "ArtHM", "90 x 90 cm")
-  },
-  {
-    slug: "tableau-art-moderne-couleurs",
-    title: "Tableau contemporain lumineux - paysage moderne",
-    theme: "art-moderne",
-    style: "Paysage contemporain",
-    artist: "Alain Méraud",
-    format: "120 x 120 cm",
-    price: 1890,
-    image: "/images/home/street-art-breton-normand-blach-gallery.webp",
-    alt: "tableau contemporain lumineux galerie BLACH",
-    isBestSeller: true,
-    seoDescription: createSeoDescription("paysage contemporain", "Alain Méraud", "120 x 120 cm")
-  }
-];
 
-export const artists: Artist[] = [
-  {
-    slug: "maxime-blachere",
-    name: "BLACH (Maxime Blachère)",
-    bio: "Fondateur de BLACH GALLERY, BLACH développe une écriture visuelle entre street art, énergie graphique, performance et scénographie murale.",
-    image: "/images/home/street-art-blach-gallery.webp",
-    specialties: ["Street art", "Performances live", "Commandes sur mesure"]
-  },
-  {
-    slug: "carotte",
-    name: "La Carotte",
-    bio: "La Carotte signe des œuvres pop, ludiques et percutantes, pensées pour une décoration pleine de relief et une lecture immédiate.",
-    image: "/images/home/pop-art-blach-gallery.webp",
-    specialties: ["Pop art", "Personnages iconiques", "Formats salon"]
-  },
-  {
-    slug: "art-hm",
-    name: "ArtHM",
-    bio: "ArtHM croise portraits, culture pop urbaine et animalité colorée dans un langage vif, détaillé et très direct.",
-    image: "/images/home/street-art-breton-normand-blach-gallery.webp",
-    specialties: ["Portraits", "Animaux", "Pop street art"]
-  }
-];
+
+
 
 export const blogPosts = [
   {
@@ -200,16 +79,14 @@ export const blogPosts = [
 
 export const navigation = [
   { href: "/", label: "Accueil" },
-  { href: "/shop", label: "Shop" },
+  { href: "/artistes-du-collectif", label: "Le collectif" },
+  { href: "/shop", label: "Les œuvres" },
   { href: "/encheres-de-la-semaine", label: "Enchères" },
-  { href: "/artistes-du-collectif", label: "Collectif" },
-  { href: "/fresque-graffiti", label: "Fresques" },
-  { href: "/blog-fluxus", label: "News & événements" },
-  { href: "/bio-contact", label: "Bio / Contact" }
+  { href: "https://www.maxletagueur.com", label: "Fresques murales", external: true },
+  { href: "/expositions", label: "Expositions" },
+  { href: "/bio-contact", label: "Contact" }
 ];
 
-export const getProductsByTheme = (slug: string) =>
-  products.filter((product) => product.theme === slug);
 
 export const getThemeBySlug = (slug: string) =>
   themePages.find((theme) => theme.slug === slug);

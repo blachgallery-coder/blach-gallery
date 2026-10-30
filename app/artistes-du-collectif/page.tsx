@@ -3,22 +3,24 @@ import { CollectiveShowcase } from "@/components/collective-showcase";
 import { collectiveArtists } from "@/lib/collective";
 
 export const metadata: Metadata = {
-  title: "Collectif artistique street art contemporain",
+  title: "Le collectif — artistes lyonnais et régionaux",
   description:
-    "Découvrez le collectif BLACH GALLERY : BLACH, La Carotte, ArtHM, Michel Donier, Jacques Berger, Alain Méraud et Emric Mer."
+    "Le collectif BLACH GALLERY : BLACH®, Bonté, La Carotte, Art HM, Pascal Nègre et des peintres de la région lyonnaise, à Dardilly.",
+  alternates: { canonical: "/artistes-du-collectif" }
 };
 
 export default function ArtistesDuCollectifPage() {
   return (
-    <section className="page-shell container collective-page-shell">
-      <div>
-        <p className="eyebrow">Collectif</p>
-        <h1 className="page-title">Les artistes de la BLACH GALLERY</h1>
-        <p className="page-intro">
-          Une sélection de profils, d'œuvres et d'énergies qui compose aujourd'hui l'identité artistique de la
-          galerie entre street culture, peinture contemporaine et gestes plus sensibles.
+    <section className="page container">
+      <header className="page-head">
+        <p className="kicker">Le collectif</p>
+        <h1>Un collectif d&apos;artistes indépendants</h1>
+        <p className="lead">
+          Fondée par Maxime Blachère (BLACH®), BLACH GALLERY rassemble des artistes locaux autour d&apos;une vision libre,
+          contemporaine et accessible de l&apos;art. Peinture, street art, sculpture, photographie et esprit Fluxus se
+          rencontrent dans une galerie indépendante à Dardilly, aux portes de Lyon.
         </p>
-      </div>
+      </header>
       <CollectiveShowcase artists={collectiveArtists} />
     </section>
   );

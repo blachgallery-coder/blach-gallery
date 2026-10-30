@@ -50,7 +50,7 @@ export default function PerformancesPage() {
         <h2>Prolongez l'expérience côté galerie.</h2>
         <p>
           Les performances renvoient naturellement vers le <Link href="/shop">shop</Link>, les{" "}
-          <Link href="/artistes">artistes</Link> et les pages thématiques pour soutenir la conversion.
+          <Link href="/artistes-du-collectif">artistes</Link> et les pages thématiques pour soutenir la conversion.
         </p>
       </div>
     </section>
