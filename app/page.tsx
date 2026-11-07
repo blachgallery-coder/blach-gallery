@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArtworkCard } from "@/components/artwork-card";
 import { ArtworkImage } from "@/components/artwork-image";
+import { CurrentExpo, currentExpoJsonLd } from "@/components/current-expo";
 import { NewsletterForm } from "@/components/newsletter-form";
 import {
   CATAWIKI_URL,
@@ -82,7 +83,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2 — ŒUVRES À LA UNE */}
+      {/* 2 — EXPOSITION À L'AFFICHE */}
+      <section className="section section-dark expo-home" aria-labelledby="expo-title">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(currentExpoJsonLd) }} />
+        <div className="container">
+          <CurrentExpo headingId="expo-title" tone="dark" />
+        </div>
+      </section>
+
+      {/* 3 — ŒUVRES À LA UNE */}
       <section className="section" aria-labelledby="une-title">
         <div className="container">
           <header className="section-head">
@@ -102,7 +111,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3 — LE COLLECTIF */}
+      {/* 4 — LE COLLECTIF */}
       <section className="section section-alt" aria-labelledby="collectif-title">
         <div className="container split">
           <div className="split-text">
@@ -150,7 +159,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4 — SHOP */}
+      {/* 5 — SHOP */}
       <section className="section" aria-labelledby="shop-title">
         <div className="container split split-reverse">
           <a className="feature-media" href={productUrl(shopVisual.handle)} target="_blank" rel="noopener noreferrer">
@@ -178,7 +187,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5 — ENCHÈRES */}
+      {/* 6 — ENCHÈRES */}
       <section className="section section-alt" aria-labelledby="encheres-title">
         <div className="container split">
           <div className="split-text">
@@ -207,7 +216,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6 — FRESQUES */}
+      {/* 7 — FRESQUES */}
       <section className="section section-dark" aria-labelledby="fresques-title">
         <div className="container narrow center">
           <p className="kicker">Max le Tagueur</p>
@@ -224,30 +233,6 @@ export default function HomePage() {
             <a href={FRESQUES_URL} className="btn btn-light" target="_blank" rel="noopener noreferrer">
               Découvrir nos fresques
             </a>
-          </div>
-        </div>
-      </section>
-
-      {/* 7 — EXPOSITION */}
-      <section className="section" aria-labelledby="expo-title">
-        <div className="container narrow center">
-          <p className="kicker">Prochaine exposition</p>
-          <p className="date">14 novembre 2026</p>
-          <h2 id="expo-title">Exposition street art</h2>
-          <p>
-            Rendez-vous à BLACH GALLERY pour une exposition exceptionnelle réunissant des artistes locaux, nationaux et
-            internationaux.
-          </p>
-          <p>Des surprises, des œuvres inédites et des rencontres artistiques dans un véritable lieu d&apos;exposition.</p>
-          <address>
-            {GALLERY_ADDRESS.street}
-            <br />
-            {GALLERY_ADDRESS.postalCode} {GALLERY_ADDRESS.city}
-          </address>
-          <div className="actions actions-center">
-            <Link href="/expositions" className="btn btn-outline">
-              Toutes les expositions
-            </Link>
           </div>
         </div>
       </section>
