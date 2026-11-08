@@ -22,7 +22,14 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" }
 };
 
-const hero = getArtwork("la-fete-de-la-couleur-port-sete-2052-blach");
+const hero = {
+  title: "Mont-Saint-Michel",
+  artist: "BLACH®",
+  image: "/images/home/hero-street-art-mont-saint-michel-blach.webp",
+  imageSmall: "/images/home/hero-street-art-mont-saint-michel-blach-960.webp",
+  width: 1672,
+  height: 711
+};
 const shopVisual = getArtwork("avatar-experience-baril");
 const auctionVisual = getArtwork("new-york-gundam-vs-sangoku");
 const collectiveWorks = [
@@ -56,16 +63,18 @@ export default function HomePage() {
 
       {/* 1 — HERO */}
       <section className="hero" aria-labelledby="hero-title">
-        <a className="hero-media" href={productUrl(hero.handle)} target="_blank" rel="noopener noreferrer">
-          <ArtworkImage
+        <Link className="hero-media" href="/shop">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             src={hero.image}
-            alt={`${hero.title} — ${hero.artist}`}
+            srcSet={`${hero.imageSmall} 960w, ${hero.image} ${hero.width}w`}
+            sizes="100vw"
             width={hero.width}
             height={hero.height}
-            sizes="100vw"
-            priority
+            alt={`${hero.title} — ${hero.artist}`}
+            fetchPriority="high"
           />
-        </a>
+        </Link>
         <div className="container hero-copy">
           <h1 id="hero-title">BLACH GALLERY</h1>
           <p className="hero-sub">Galerie d&apos;art contemporain &amp; collectif d&apos;artistes lyonnais</p>
@@ -78,7 +87,7 @@ export default function HomePage() {
             </a>
           </div>
           <p className="hero-credit">
-            {hero.artist}, <em>{hero.title}</em> — {hero.type}, {formatPrice(hero.price)}
+            {hero.artist}, <em>{hero.title}</em>
           </p>
         </div>
       </section>
