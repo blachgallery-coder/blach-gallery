@@ -40,20 +40,46 @@ const collectiveWorks = [
 ];
 const featured = featuredHandles.map(getArtwork);
 
+// JSON-LD enrichi (16/11/2026) : @id stables, WebSite, Person fondateur. Pas d'horaires ni d'avis (non validés).
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "ArtGallery",
-  name: "BLACH GALLERY",
-  url: "https://www.blachgallery.com",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: GALLERY_ADDRESS.street,
-    postalCode: GALLERY_ADDRESS.postalCode,
-    addressLocality: GALLERY_ADDRESS.city,
-    addressCountry: "FR"
-  },
-  founder: { "@type": "Person", name: "Maxime Blachère" },
-  sameAs: [SHOP_URL, CATAWIKI_URL, FRESQUES_URL]
+  "@graph": [
+    {
+      "@type": "ArtGallery",
+      "@id": "https://www.blachgallery.com/#gallery",
+      name: "BLACH GALLERY",
+      url: "https://www.blachgallery.com",
+      logo: "https://www.blachgallery.com/images/logo-square-web.png",
+      image: "https://www.blachgallery.com/images/home/hero-street-art-mont-saint-michel-blach.webp",
+      email: "blachgallery@gmail.com",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: GALLERY_ADDRESS.street,
+        postalCode: GALLERY_ADDRESS.postalCode,
+        addressLocality: GALLERY_ADDRESS.city,
+        addressCountry: "FR"
+      },
+      founder: { "@id": "https://www.blachgallery.com/#blach" },
+      sameAs: [SHOP_URL, CATAWIKI_URL]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.blachgallery.com/#blach",
+      name: "Maxime Blachère",
+      alternateName: "BLACH®",
+      jobTitle: "Artiste plasticien",
+      worksFor: { "@id": "https://www.blachgallery.com/#gallery" },
+      sameAs: [FRESQUES_URL]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.blachgallery.com/#website",
+      url: "https://www.blachgallery.com",
+      name: "BLACH GALLERY",
+      inLanguage: "fr-FR",
+      publisher: { "@id": "https://www.blachgallery.com/#gallery" }
+    }
+  ]
 };
 
 export default function HomePage() {
