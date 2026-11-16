@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { NewsletterForm } from "@/components/newsletter-form";
 import { UnsubscribeForm } from "@/components/unsubscribe-form";
 import { CONTACT_EMAIL } from "@/lib/gallery";
@@ -6,7 +7,7 @@ import { CONTACT_EMAIL } from "@/lib/gallery";
 export const metadata: Metadata = {
   title: "Newsletter et données personnelles",
   description: "Inscription, désinscription et informations RGPD de la newsletter BLACH GALLERY.",
-  alternates: { canonical: "/newsletter" }
+  ...pageMeta("/newsletter", "Newsletter et données personnelles", "Inscription, désinscription et informations RGPD de la newsletter BLACH GALLERY.")
 };
 
 export default function NewsletterPage() {

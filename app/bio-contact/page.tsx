@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { CATAWIKI_URL, CONTACT_EMAIL, FRESQUES_URL, GALLERY_ADDRESS, SHOP_URL } from "@/lib/gallery";
 
 export const metadata: Metadata = {
   title: "Contact — BLACH GALLERY, Dardilly",
   description: "Contacter BLACH GALLERY : 11 place de l'Église, 69570 Dardilly. Galerie d'art contemporain et collectif d'artistes lyonnais.",
-  alternates: { canonical: "/bio-contact" }
+  ...pageMeta("/bio-contact", "Contact — BLACH GALLERY, Dardilly", "Contacter BLACH GALLERY : 11 place de l'Église, 69570 Dardilly. Galerie d'art contemporain et collectif d'artistes lyonnais.")
 };
 
 export default function ContactPage() {

@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import { blogPosts } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Blog street art, déco graffiti et conseils d'achat",
-  description:
-    "Articles BLACH GALLERY sur le prix d'un tableau street art, les idées déco graffiti et les cadeaux personnalisés."
+  description: "Articles BLACH GALLERY sur le prix d'un tableau street art, les idées déco graffiti et les cadeaux personnalisés.",
+  ...pageMeta("/blog", "Blog street art, déco graffiti et conseils d'achat", "Articles BLACH GALLERY sur le prix d'un tableau street art, les idées déco graffiti et les cadeaux personnalisés.")
 };
 
 export default function BlogPage() {

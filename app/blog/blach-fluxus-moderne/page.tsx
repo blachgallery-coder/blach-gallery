@@ -1,4 +1,5 @@
 ﻿import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import { blogPosts } from "@/lib/data";
 
@@ -6,7 +7,8 @@ const post = blogPosts.find((item) => item.slug === "blach-fluxus-moderne")!;
 
 export const metadata: Metadata = {
   title: post.title,
-  description: post.excerpt
+  description: post.excerpt,
+  ...pageMeta("/blog/blach-fluxus-moderne", post.title, post.excerpt)
 };
 
 export default function BlachFluxusModernePage() {

@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { ArtworkGrid } from "@/components/artwork-card";
 import { SHOP_URL, artworks } from "@/lib/gallery";
 
 export const metadata: Metadata = {
   title: "Les œuvres — originaux, sculptures et éditions limitées",
-  description:
-    "Œuvres originales, sculptures et éditions limitées des artistes de BLACH GALLERY (BLACH®, Bonté, La Carotte, Art HM), disponibles sur le shop.",
-  alternates: { canonical: "/shop" }
+  description: "Œuvres originales, sculptures et éditions limitées des artistes de BLACH GALLERY (BLACH®, Bonté, La Carotte, Art HM), disponibles sur le shop.",
+  ...pageMeta("/shop", "Les œuvres — originaux, sculptures et éditions limitées", "Œuvres originales, sculptures et éditions limitées des artistes de BLACH GALLERY (BLACH®, Bonté, La Carotte, Art HM), disponibles sur le shop.")
 };
 
 const sorted = [...artworks].sort((a, b) => b.price - a.price);

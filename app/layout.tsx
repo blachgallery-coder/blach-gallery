@@ -13,9 +13,6 @@ export const metadata: Metadata = {
   },
   description:
     "BLACH GALLERY, galerie d'art contemporain et collectif d'artistes lyonnais à Dardilly : originaux, sculptures, éditions limitées, enchères et fresques murales.",
-  alternates: {
-    canonical: "/"
-  },
   robots: {
     index: true,
     follow: true,

@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { ContentPageShell } from "@/components/content-page-shell";
 
 export const metadata: Metadata = {
   title: "Atelier graffiti entreprises et ecoles",
-  description: "Ateliers graffiti pedagogiques et team building pour entreprises, collectivites et ecoles."
+  description: "Ateliers graffiti pedagogiques et team building pour entreprises, collectivites et ecoles.",
+  ...pageMeta("/atelier-graffiti", "Atelier graffiti entreprises et ecoles", "Ateliers graffiti pedagogiques et team building pour entreprises, collectivites et ecoles.")
 };
 
 export default function AtelierGraffitiPage() {

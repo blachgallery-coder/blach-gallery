@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { ContentPageShell } from "@/components/content-page-shell";
 
 const catawikiUrl = "https://www.catawiki.com/fr/u/7440221-blachgallery";
@@ -20,7 +21,8 @@ const auctionHighlights = [
 
 export const metadata: Metadata = {
   title: "Enchères de la semaine street art",
-  description: "Suivez les enchères de la semaine et les ventes en cours liées à BLACH GALLERY sur Catawiki."
+  description: "Suivez les enchères de la semaine et les ventes en cours liées à BLACH GALLERY sur Catawiki.",
+  ...pageMeta("/encheres-de-la-semaine", "Enchères de la semaine street art", "Suivez les enchères de la semaine et les ventes en cours liées à BLACH GALLERY sur Catawiki.")
 };
 
 export default function EncheresDeLaSemainePage() {

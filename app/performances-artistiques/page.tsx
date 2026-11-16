@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Performances artistiques live pour entreprises et événements",
-  description:
-    "Performances artistiques graffiti et live painting par BLACH GALLERY pour entreprises, lieux premium et événements privés."
+  description: "Performances artistiques graffiti et live painting par BLACH GALLERY pour entreprises, lieux premium et événements privés.",
+  ...pageMeta("/performances-artistiques", "Performances artistiques live pour entreprises et événements", "Performances artistiques graffiti et live painting par BLACH GALLERY pour entreprises, lieux premium et événements privés.")
 };
 
 export default function PerformancesPage() {

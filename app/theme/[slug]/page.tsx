@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import { ArtworkGrid } from "@/components/artwork-card";
 import { getThemeBySlug, themePages } from "@/lib/data";
@@ -13,7 +14,7 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: ThemePageProps): Metadata {
   const theme = getThemeBySlug(params.slug);
   if (!theme) return {};
-  return { title: theme.h1, description: theme.intro.slice(0, 155), alternates: { canonical: `/theme/${theme.slug}` } };
+  return { title: theme.h1, description: theme.intro.slice(0, 155), ...pageMeta(`/theme/${theme.slug}`, theme.h1, theme.intro.slice(0, 155)) };
 }
 
 export default function ThemePage({ params }: ThemePageProps) {
