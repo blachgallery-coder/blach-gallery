@@ -5,12 +5,12 @@ import { CurrentExpo, currentExpoJsonLd } from "@/components/current-expo";
 export const metadata: Metadata = {
   title: "Expositions — Street Art International à Dardilly, du 14 novembre au 24 décembre 2026",
   description:
-    "Le street art international débarque à Dardilly : 23 artistes, plus de 600 œuvres (originaux, éditions limitées, sculptures). Vernissage samedi 14 novembre 2026, 17h-21h, entrée libre. BLACH GALLERY, 11 place de l'Église, 69570 Dardilly.",
+    "Le street art international débarque à Dardilly : plus de 20 artistes, plus de 600 œuvres (originaux, éditions limitées, sculptures). Vernissage samedi 14 novembre 2026, 17h-21h, entrée libre. BLACH GALLERY, 11 place de l'Église, 69570 Dardilly.",
   alternates: { canonical: "/expositions" },
   openGraph: {
     title: "Le street art international débarque à Dardilly !",
     description:
-      "23 artistes, 600+ œuvres. Vernissage samedi 14 novembre 2026, 17h-21h, entrée libre. Exposition du 14 novembre au 24 décembre 2026 — BLACH GALLERY, Dardilly.",
+      "Plus de 20 artistes, 600+ œuvres. Vernissage samedi 14 novembre 2026, 17h-21h, entrée libre. Exposition du 14 novembre au 24 décembre 2026 — BLACH GALLERY, Dardilly.",
     url: "/expositions",
     images: [
       {

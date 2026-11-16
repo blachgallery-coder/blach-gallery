@@ -3,11 +3,12 @@ import Link from "next/link";
 import { GALLERY_ADDRESS } from "@/lib/gallery";
 
 // Exposition à l'affiche — données validées par Maxime Blachère (affiche + post du 07/11/2026). Ne rien inventer ici.
+// 16/11/2026 : retrait de toute mention promotionnelle de GRAFFMATT (consigne Maxime). L'affiche image contient encore le nom → à remplacer (voir 07_PLAN_CORRECTIONS).
 export const currentExpo = {
   title: "Le street art international débarque à Dardilly !",
   shortTitle: "Street Art International",
   intro:
-    "23 artistes, plus de 600 œuvres : originaux, éditions limitées, sculptures. Pop art, graffiti, aquarelle… il y en a pour tous les murs (et tous les cadeaux de Noël).",
+    "Plus de 20 artistes, plus de 600 œuvres : originaux, éditions limitées, sculptures. Pop art, graffiti, aquarelle… il y en a pour tous les murs (et tous les cadeaux de Noël).",
   vernissage: {
     label: "Samedi 14 novembre 2026, 17h → 21h",
     details: "Entrée libre · animation graffiti",
@@ -26,7 +27,7 @@ export const currentExpo = {
     width: 1240,
     height: 1754
   },
-  headliners: ["GRAFFMATT", "Brunograffer", "BLACH®", "LA CAROTTE", "BENNY THE KID (BTK)", "ArtUp"],
+  headliners: ["Brunograffer", "BLACH®", "LA CAROTTE", "BENNY THE KID (BTK)", "ArtUp"],
   guests: [
     "SOCRATE",
     "MR POULET",
