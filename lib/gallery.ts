@@ -33,7 +33,8 @@ export const artworks: Artwork[] = [
   {
     handle: "avatar-experience-baril",
     title: "Avatar Experience Baril",
-    artist: "BLACH®",
+    // 16/11/2026 : Shopify = fournisseur PASCAL, métachamp artiste PASCAL (et non BLACH®). Identité complète à confirmer.
+    artist: "Pascal",
     type: "Original",
     price: 1450,
     image: cdn("IMG_20260928_131325.jpg?v=1791833179"),

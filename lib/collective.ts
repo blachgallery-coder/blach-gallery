@@ -19,7 +19,7 @@ export const collectiveArtists: CollectiveArtist[] = [
     bio: "Fondateur de BLACH GALLERY, BLACH® construit un langage hybride entre graffiti, photographie, performance et culture Fluxus. Les biographies publiques de la galerie et de Catawiki le présentent comme un artiste français diffusé à l'international, avec des œuvres vues en Europe, aux États-Unis et en Asie, et une pratique murale marquée notamment par une fresque monumentale pour le Tour de France 2019.",
     style: "Street art, Fluxus, performance, photographie augmentée",
     city: "Dardilly / Lyon",
-    works: [getArtwork("avatar-experience-baril"), getArtwork("new-york-bay-2025-blach®")]
+    works: [getArtwork("la-fete-de-la-couleur-port-sete-2052-blach"), getArtwork("new-york-bay-2025-blach®")]
   },
   {
     slug: "bonte",
