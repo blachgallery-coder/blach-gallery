@@ -8,6 +8,8 @@ export type CollectiveArtist = {
   style?: string;
   city?: string;
   works?: Artwork[];
+  /** Visuels hors Shopify fournis par la galerie. nsfw = flouté jusqu'au clic. */
+  gallery?: { src: string; title: string; alt: string; width: number; height: number; nsfw?: boolean }[];
 };
 
 // Biographies : reprises du contenu existant du site (sources publiques citées). Aucune donnée ajoutée.
@@ -48,7 +50,16 @@ export const collectiveArtists: CollectiveArtist[] = [
   {
     slug: "pascal-negre",
     name: "Pascal Nègre",
-    role: "Membre du collectif"
+    role: "Membre du collectif",
+    // Bio fournie par Maxime Blachère le 16/11/2026.
+    bio: "Pascal Nègre est un street artiste français, enfant du 19e arrondissement de Paris. Pour s'évader d'un quotidien qu'il trouve morose et violent, il dessine et il peint. Mais la réalité le rattrape : il se dirige naturellement vers le street art, où il peut s'exprimer comme il l'entend.\n\nGrand passionné d'art, il aime les belles lignes. Ses deux thèmes de prédilection : les femmes et les armes. Tantôt rondes et agréables, tantôt précises et abruptes. On peut d'ailleurs l'entendre dire qu'il peut dormir avec l'une, mais pas avec l'autre. À vous de deviner.\n\nSon style est précis, cru, instinctif. Toujours actif dans le street art, il sait jongler avec plusieurs armes et parvient à décharger sa violence et à matérialiser ses démons sur des espaces restreints : du pur concentré de violence. Bang! Bang!",
+    style: "Street art — femmes et armes, à la bombe",
+    city: "Paris (19e)",
+    works: [getArtwork("avatar-experience-baril")],
+    gallery: [
+      { src: "/images/artists/oeuvre-graffiti-nu-graffitits-pascal-negre.webp", title: "Graffitits", alt: "Graffitits — Pascal Nègre, bombe aérosol, nu sur fond graffiti", width: 1024, height: 659, nsfw: true },
+      { src: "/images/artists/oeuvre-graffiti-vulcania-pascal-negre.webp", title: "Vulcania", alt: "Vulcania — Pascal Nègre, bombe aérosol, rouges et orangés", width: 1024, height: 1024, nsfw: true }
+    ]
   },
   {
     slug: "michel-donier",
