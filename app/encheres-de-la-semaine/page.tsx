@@ -4,9 +4,9 @@ import { pageMeta } from "@/lib/seo";
 import { CATAWIKI_URL, CONTACT_EMAIL, GALLERY_ADDRESS } from "@/lib/gallery";
 
 // Semaine en cours — à mettre à jour chaque lundi (titres = intitulés Catawiki exacts).
-// Données relevées sur l'espace vendeur Catawiki le lundi 16/11/2026 à 8h55.
+// Données relevées sur l'espace vendeur Catawiki le lundi 16/11/2026 (offres à 18h).
 const WEEK_LABEL = "Semaine du 16 au 21 novembre 2026";
-const SNAPSHOT_LABEL = "Offres relevées le lundi 16 novembre 2026 à 8h55";
+const SNAPSHOT_LABEL = "Offres relevées le lundi 16 novembre 2026 à 18h";
 const PHONE = "06 41 85 19 48";
 const PHONE_HREF = "tel:+33641851948";
 const IMG = "/images/encheres";
@@ -26,7 +26,7 @@ const lots: Lot[] = [
     image: `${IMG}/enchere-street-art-cambriolage-louvre-blach.webp`,
     type: "Édition limitée",
     closing: "Mar. 17 nov. vers 20h15",
-    bid: 24,
+    bid: 200,
     reserve: "none"
   },
   {
@@ -34,7 +34,7 @@ const lots: Lot[] = [
     image: `${IMG}/enchere-vandal-is-color-taj-mahal-blach.webp`,
     type: "Édition limitée",
     closing: "Mar. 17 nov. vers 20h30",
-    bid: 25,
+    bid: 39,
     reserve: "none"
   },
   {
@@ -58,7 +58,7 @@ const lots: Lot[] = [
     image: `${IMG}/enchere-street-art-new-york-ultimate-blach.webp`,
     type: "Édition limitée",
     closing: "Ven. 20 nov. vers 18h30",
-    bid: 60,
+    bid: 165,
     reserve: "none"
   },
   {
@@ -66,9 +66,30 @@ const lots: Lot[] = [
     image: `${IMG}/enchere-guitare-martin-d28-vandalized-blach.webp`,
     type: "Édition limitée",
     closing: "Sam. 21 nov. vers 21h15",
-    bid: 110,
+    bid: 170,
     reserve: "none"
   }
+];
+
+// Avis réels d'acheteurs, copiés tels quels depuis le profil vendeur Catawiki (relevé du 16/11/2026).
+const reviews = [
+  {
+    text: "Excellent 👍👍👍 Très bonne communication. Expédition très rapide, produit conforme et bien emballé. Un grand merci pour la surprise 🤩🤩🤩 Top !",
+    date: "Octobre 2026"
+  },
+  {
+    text: "Œuvre SUBLIME, avec de petites attentions très agréables à l'intérieur 😊 Je recommanderai avec grand plaisir !",
+    date: "Septembre 2026"
+  },
+  {
+    text: "Bellissimo! Molto più bello dal vivo che in foto. Venditore molto disponibile.",
+    translation: "Magnifique ! Bien plus beau en vrai qu'en photo. Vendeur très disponible.",
+    flag: "🇮🇹",
+    date: "Septembre 2026"
+  },
+  { text: "Livraison et tableau parfait, je recommande.", date: "Octobre 2026" },
+  { text: "Parfait, rien à dire !", date: "Septembre 2026" },
+  { text: "Superbe, merci beaucoup, à tout bientôt !", date: "Septembre 2026" }
 ];
 
 const steps = [
@@ -151,7 +172,67 @@ export default function EncheresDeLaSemainePage() {
         </div>
       </section>
 
-      {/* 2 — CONFIANCE */}
+      {/* 2 — ÉVALUATIONS */}
+      <section className="section auction-reviews" aria-labelledby="avis-title">
+        <div className="container">
+          <div className="auction-reviews-head">
+            <div>
+              <p className="kicker">Ils ont enchéri, ils en parlent</p>
+              <h2 id="avis-title">794 évaluations, 97 % de satisfaction</h2>
+              <div className="auction-stats">
+                <div>
+                  <strong>2 876</strong>
+                  <span>œuvres vendues</span>
+                </div>
+                <div>
+                  <strong>97,18 %</strong>
+                  <span>avis positifs</span>
+                </div>
+                <div>
+                  <strong>794</strong>
+                  <span>évaluations</span>
+                </div>
+              </div>
+              <p className="auction-footnote">Chiffres du profil vendeur Catawiki BLACHGALLERY au 16/11/2026.</p>
+            </div>
+            <figure className="auction-shot">
+              <img
+                src={`${IMG}/catawiki-profil-blachgallery-avis.webp`}
+                alt="Profil vendeur BLACHGALLERY sur Catawiki : 2876 objets vendus, 794 évaluations"
+                width={466}
+                height={222}
+                loading="lazy"
+              />
+              <figcaption>Notre profil vendeur Catawiki — capture du 16/11/2026 au matin</figcaption>
+            </figure>
+          </div>
+
+          <ul className="auction-review-list">
+            {reviews.map((review) => (
+              <li key={review.text}>
+                <p className="auction-stars" aria-label="Avis positif">
+                  ★★★★★
+                </p>
+                <blockquote>
+                  <p>« {review.text} »</p>
+                  {review.translation ? <p className="auction-review-tr">{review.translation}</p> : null}
+                </blockquote>
+                <p className="auction-review-meta">
+                  {review.flag ? `${review.flag} ` : ""}Acheteur Catawiki · {review.date}
+                </p>
+              </li>
+            ))}
+          </ul>
+          <p className="auction-footnote">
+            Extraits d&apos;avis réels laissés par nos acheteurs sur Catawiki, reproduits sans modification de fond.{" "}
+            <a href={CATAWIKI_URL} target="_blank" rel="noopener noreferrer">
+              Voir toutes les évaluations
+            </a>
+          </p>
+        </div>
+      </section>
+
+      {/* 3 — CONFIANCE */}
       <section className="section auction-trust" aria-labelledby="confiance-title">
         <div className="container auction-trust-grid">
           <div>
@@ -178,31 +259,19 @@ export default function EncheresDeLaSemainePage() {
             </figure>
           </div>
 
-          <div className="auction-proof">
-            <div className="auction-stats">
-              <div>
-                <strong>2 876</strong>
-                <span>œuvres vendues</span>
-              </div>
-              <div>
-                <strong>97,22 %</strong>
-                <span>avis positifs</span>
-              </div>
-              <div>
-                <strong>794</strong>
-                <span>évaluations</span>
-              </div>
+          <div className="auction-trust-points">
+            <div>
+              <strong>10 M+</strong>
+              <span>visiteurs uniques par mois</span>
             </div>
-            <figure className="auction-shot">
-              <img
-                src={`${IMG}/catawiki-profil-blachgallery-avis.webp`}
-                alt="Profil vendeur BLACHGALLERY sur Catawiki : 2876 objets vendus, 97,22 % d'avis positifs, 794 évaluations"
-                width={466}
-                height={222}
-                loading="lazy"
-              />
-              <figcaption>Notre profil vendeur Catawiki — vendeur vérifié</figcaption>
-            </figure>
+            <div>
+              <strong>Experts</strong>
+              <span>chaque lot est validé avant la vente</span>
+            </div>
+            <div>
+              <strong>Paiement bloqué</strong>
+              <span>jusqu&apos;à réception de l&apos;œuvre</span>
+            </div>
           </div>
         </div>
       </section>

@@ -1623,3 +1623,126 @@ body > .skiptranslate {
   margin-left: auto;
   margin-right: auto;
 }
+
+/* Évaluations */
+.auction-reviews {
+  padding-bottom: clamp(3rem, 7vw, 5rem);
+}
+
+.auction-reviews-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.auction-reviews-head .auction-stats {
+  margin: 1.8rem 0 0;
+}
+
+.auction-reviews-head .auction-shot {
+  margin: 0;
+}
+
+.auction-review-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.auction-review-list li {
+  display: flex;
+  flex-direction: column;
+  padding: 1.8rem;
+  border: 1px solid var(--line);
+  background: #fff;
+  transition: border-color 200ms ease, transform 200ms ease;
+}
+
+.auction-review-list li:hover {
+  border-color: var(--gold);
+  transform: translateY(-3px);
+}
+
+.auction-stars {
+  margin: 0 0 0.9rem;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+}
+
+.auction-review-list blockquote {
+  flex: 1;
+  margin: 0;
+}
+
+.auction-review-list blockquote p {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  line-height: 1.4;
+}
+
+.auction-review-list blockquote .auction-review-tr {
+  margin-top: 0.6rem;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.auction-review-meta {
+  margin: 1.2rem 0 0;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.auction-reviews .auction-footnote a {
+  text-decoration: underline;
+}
+
+.auction-trust-points {
+  display: grid;
+  gap: 1rem;
+}
+
+.auction-trust-points div {
+  display: grid;
+  gap: 0.3rem;
+  padding: 1.5rem 1.6rem;
+  border-left: 3px solid var(--gold);
+  background: var(--soft);
+}
+
+.auction-trust-points strong {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.7rem;
+  line-height: 1.1;
+}
+
+.auction-trust-points span {
+  color: var(--muted);
+}
+
+@media (max-width: 980px) {
+  .auction-review-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 860px) {
+  .auction-reviews-head {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .auction-review-list {
+    grid-template-columns: 1fr;
+  }
+}
