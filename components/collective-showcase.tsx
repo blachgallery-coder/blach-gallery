@@ -2,6 +2,9 @@ import { ArtworkImage } from "@/components/artwork-image";
 import type { CollectiveArtist } from "@/lib/collective";
 import { productUrl } from "@/lib/gallery";
 import { RevealImage } from "@/components/reveal-image";
+import { artistPath, getArtist } from "@/lib/artists";
+
+const pageSlug = (slug: string) => (slug === "blach-maxime-blachere" ? "blach" : slug);
 
 export function CollectiveShowcase({ artists }: { artists: CollectiveArtist[] }) {
   return (
@@ -12,6 +15,13 @@ export function CollectiveShowcase({ artists }: { artists: CollectiveArtist[] })
             <p className="kicker">{artist.role}</p>
             <h2>{artist.name}</h2>
             {artist.bio ? artist.bio.split("\n\n").map((para, i) => <p key={i}>{para}</p>) : null}
+            {getArtist(pageSlug(artist.slug)) ? (
+              <p>
+                <a className="text-link" href={artistPath(pageSlug(artist.slug))}>
+                  Voir la page et les œuvres de {artist.name} →
+                </a>
+              </p>
+            ) : null}
             {artist.style || artist.city ? (
               <p className="muted">{[artist.style, artist.city].filter(Boolean).join(" — ")}</p>
             ) : null}

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { pageMeta } from "@/lib/seo";
 import { CollectiveShowcase } from "@/components/collective-showcase";
 import { collectiveArtists } from "@/lib/collective";
+import { artists, artistPath } from "@/lib/artists";
+import { catalogCounts } from "@/lib/artist-catalog";
 
 export const metadata: Metadata = {
   title: "Le collectif — artistes lyonnais et régionaux",
@@ -22,6 +24,26 @@ export default function ArtistesDuCollectifPage() {
         </p>
       </header>
       <CollectiveShowcase artists={collectiveArtists} />
+      <section className="section" aria-labelledby="invites-titre">
+        <p className="kicker">Artistes invités</p>
+        <h2 id="invites-titre">Street art international à la galerie</h2>
+        <ul className="triple-grid" style={{ listStyle: "none", padding: 0 }}>
+          {artists
+            .filter((a) => a.group === "invite")
+            .map((a) => (
+              <li key={a.slug} className="info-card">
+                <p className="kicker">{a.origin}</p>
+                <h3>
+                  <a href={artistPath(a.slug)}>{a.name}</a>
+                </h3>
+                <p>{a.short}</p>
+                <a className="text-link" href={artistPath(a.slug)}>
+                  {catalogCounts[a.slug] ? `${catalogCounts[a.slug]} œuvre${catalogCounts[a.slug] > 1 ? "s" : ""} à vendre →` : "Découvrir →"}
+                </a>
+              </li>
+            ))}
+        </ul>
+      </section>
     </section>
   );
 }

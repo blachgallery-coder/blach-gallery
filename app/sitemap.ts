@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { blogPosts, themePages } from "@/lib/data";
+import { artists } from "@/lib/artists";
 
 const baseUrl = "https://www.blachgallery.com";
 const now = new Date();
@@ -31,5 +32,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: now
   }));
 
-  return [...staticPages, ...themeEntries, ...blogEntries];
+  const artistEntries = artists.map((artist) => ({
+    url: `${baseUrl}/artistes/${artist.slug}`,
+    lastModified: now
+  }));
+
+  return [...staticPages, ...artistEntries, ...themeEntries, ...blogEntries];
 }
