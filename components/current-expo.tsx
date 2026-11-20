@@ -3,7 +3,7 @@ import Link from "next/link";
 import { GALLERY_ADDRESS } from "@/lib/gallery";
 
 // Exposition à l'affiche — données validées par Maxime Blachère (affiche + post du 07/11/2026). Ne rien inventer ici.
-// 16/11/2026 : retrait de toute mention promotionnelle de GRAFFMATT (consigne Maxime). L'affiche image contient encore le nom → à remplacer (voir 07_PLAN_CORRECTIONS).
+// 16/11/2026 : retrait de toute mention promotionnelle de GRAFFMATT (consigne Maxime). 20/11/2026 : affiche remplacée par « Expo Fluxus » (sans GRAFFMATT).
 export const currentExpo = {
   title: "Le street art international débarque à Dardilly !",
   shortTitle: "Street Art International",
@@ -22,10 +22,10 @@ export const currentExpo = {
     end: "2026-12-24"
   },
   poster: {
-    src: "/images/expo-street-art/affiche-street-art-international-dardilly-2026.webp",
-    alt: "Affiche Street Art International débarque à Dardilly — vernissage samedi 14 novembre 2026, 17h-21h, BLACH GALLERY, 11 place de l'Église, 69570 Dardilly",
-    width: 1240,
-    height: 1754
+    src: "/images/expo-street-art/affiche-expo-fluxus-dardilly-2026.webp",
+    alt: "Affiche Expo Fluxus — BLACH GALLERY, galerie d'art urbain & Fluxus — 23 artistes, 600+ œuvres, du 14 novembre au 24 décembre 2026, derrière l'église de Dardilly-le-Bas",
+    width: 1024,
+    height: 1536
   },
   headliners: ["Brunograffer", "BLACH®", "LA CAROTTE", "BENNY THE KID (BTK)", "ArtUp"],
   guests: [

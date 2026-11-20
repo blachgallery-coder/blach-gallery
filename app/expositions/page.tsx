@@ -14,10 +14,10 @@ export const metadata: Metadata = {
     url: "/expositions",
     images: [
       {
-        url: "/images/expo-street-art/affiche-street-art-international-dardilly-2026.webp",
-        width: 1240,
-        height: 1754,
-        alt: "Affiche Street Art International débarque à Dardilly — BLACH GALLERY"
+        url: "/images/expo-street-art/affiche-expo-fluxus-dardilly-2026.webp",
+        width: 1024,
+        height: 1536,
+        alt: "Affiche Expo Fluxus — BLACH GALLERY Dardilly, du 14 novembre au 24 décembre 2026"
       }
     ]
   }
