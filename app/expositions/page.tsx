@@ -3,21 +3,21 @@ import Image from "next/image";
 import { CurrentExpo, currentExpoJsonLd } from "@/components/current-expo";
 
 export const metadata: Metadata = {
-  title: "Expositions — Street Art International à Dardilly, du 14 novembre au 24 décembre 2026",
+  title: "Expositions — Expo Fluxus à Dardilly, du 14 novembre au 24 décembre 2026",
   description:
-    "Le street art international débarque à Dardilly : plus de 20 artistes, plus de 600 œuvres (originaux, éditions limitées, sculptures). Vernissage samedi 14 novembre 2026, 17h-21h, entrée libre. BLACH GALLERY, 11 place de l'Église, 69570 Dardilly.",
+    "Expo Fluxus à la BLACH GALLERY, derrière l'église de Dardilly-le-Bas : 23 artistes, plus de 600 œuvres (originaux, éditions limitées, sculptures). Vernissage samedi 14 novembre 2026, 17h-21h, entrée libre. BLACH GALLERY, 11 place de l'Église, 69570 Dardilly.",
   alternates: { canonical: "/expositions" },
   openGraph: {
-    title: "Le street art international débarque à Dardilly !",
+    title: "Expo Fluxus : parce que tout se passe derrière l'église !",
     description:
-      "Plus de 20 artistes, 600+ œuvres. Vernissage samedi 14 novembre 2026, 17h-21h, entrée libre. Exposition du 14 novembre au 24 décembre 2026 — BLACH GALLERY, Dardilly.",
+      "23 artistes, 600+ œuvres. Vernissage samedi 14 novembre 2026, 17h-21h, entrée libre. Exposition du 14 novembre au 24 décembre 2026 — BLACH GALLERY, Dardilly.",
     url: "/expositions",
     images: [
       {
-        url: "/images/expo-street-art/affiche-street-art-international-dardilly-2026.webp",
-        width: 1240,
-        height: 1754,
-        alt: "Affiche Street Art International débarque à Dardilly — BLACH GALLERY"
+        url: "/images/expo-street-art/affiche-expo-fluxus-dardilly-2026.webp",
+        width: 1024,
+        height: 1536,
+        alt: "Affiche Expo Fluxus — BLACH GALLERY Dardilly, du 14 novembre au 24 décembre 2026"
       }
     ]
   }
