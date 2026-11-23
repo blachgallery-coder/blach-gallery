@@ -1746,3 +1746,10 @@ body > .skiptranslate {
     grid-template-columns: 1fr;
   }
 }
+
+.hours-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.25rem 0 0.75rem;
+  line-height: 1.7;
+}

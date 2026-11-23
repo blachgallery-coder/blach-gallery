@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { OpeningHours } from "@/components/opening-hours";
 import { pageMeta } from "@/lib/seo";
 import { CATAWIKI_URL, CONTACT_EMAIL, FRESQUES_URL, GALLERY_ADDRESS, SHOP_URL } from "@/lib/gallery";
 
@@ -39,7 +40,7 @@ export default function ContactPage() {
           <a href={`mailto:${CONTACT_EMAIL}`} className="text-link">
             {CONTACT_EMAIL}
           </a>
-          <p className="muted">Horaires d&apos;ouverture : nous contacter avant votre visite.</p>
+          <OpeningHours />
         </div>
         <div>
           <p className="footer-label">En ligne</p>

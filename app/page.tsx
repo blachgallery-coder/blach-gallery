@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { OpeningHours } from "@/components/opening-hours";
 import Link from "next/link";
 import { ArtworkCard } from "@/components/artwork-card";
 import { ArtworkImage } from "@/components/artwork-image";
@@ -8,6 +9,8 @@ import {
   CATAWIKI_URL,
   FRESQUES_URL,
   GALLERY_ADDRESS,
+  GALLERY_PHONE,
+  OPENING_HOURS_SCHEMA,
   SHOP_URL,
   featuredHandles,
   formatPrice,
@@ -40,7 +43,7 @@ const collectiveWorks = [
 ];
 const featured = featuredHandles.map(getArtwork);
 
-// JSON-LD enrichi (16/11/2026) : @id stables, WebSite, Person fondateur. Pas d'horaires ni d'avis (non validés).
+// JSON-LD enrichi (16/11/2026) : @id stables, WebSite, Person fondateur. Horaires + téléphone ajoutés le 23/11/2026 (validés). Pas d'avis.
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
@@ -52,6 +55,9 @@ const jsonLd = {
       logo: "https://www.blachgallery.com/images/logo-square-web.png",
       image: "https://www.blachgallery.com/images/home/hero-street-art-mont-saint-michel-blach.webp",
       email: "blachgallery@gmail.com",
+      telephone: GALLERY_PHONE.e164,
+      openingHoursSpecification: OPENING_HOURS_SCHEMA,
+      areaServed: ["Dardilly", "Lyon", "France", "Worldwide"],
       address: {
         "@type": "PostalAddress",
         streetAddress: GALLERY_ADDRESS.street,
@@ -296,7 +302,7 @@ export default function HomePage() {
             <br />
             {GALLERY_ADDRESS.postalCode} {GALLERY_ADDRESS.city}
           </address>
-          <p className="muted">Horaires d&apos;ouverture : nous contacter avant votre visite.</p>
+          <OpeningHours />
           <div className="actions actions-center">
             <a href={GALLERY_ADDRESS.mapsUrl} className="btn btn-dark" target="_blank" rel="noopener noreferrer">
               Itinéraire Google Maps

@@ -3,7 +3,17 @@ import { blogPosts, themePages } from "@/lib/data";
 import { artists } from "@/lib/artists";
 
 const baseUrl = "https://www.blachgallery.com";
-const now = new Date();
+// Dates de dernière modification RÉELLES (à mettre à jour quand le contenu change).
+// Une date identique partout = signal ignoré par Google.
+const LAST_MODIFIED: Record<string, string> = {
+  "": "2026-11-23",
+  "/bio-contact": "2026-11-23",
+  "/artistes-du-collectif": "2026-11-23",
+  "/expositions": "2026-11-21"
+};
+const DEFAULT_LAST_MODIFIED = "2026-11-16";
+const lastMod = (path: string) =>
+  new Date(LAST_MODIFIED[path] ?? (path.startsWith("/artistes/") ? "2026-11-23" : DEFAULT_LAST_MODIFIED));
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = [
@@ -19,22 +29,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/performances-artistiques"
   ].map((path) => ({
     url: `${baseUrl}${path}`,
-    lastModified: now
+    lastModified: lastMod(path)
   }));
 
   const themeEntries = themePages.map((theme) => ({
     url: `${baseUrl}/theme/${theme.slug}`,
-    lastModified: now
+    lastModified: lastMod(`/theme/${theme.slug}`)
   }));
 
   const blogEntries = blogPosts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: now
+    lastModified: lastMod(`/blog/${post.slug}`)
   }));
 
   const artistEntries = artists.map((artist) => ({
     url: `${baseUrl}/artistes/${artist.slug}`,
-    lastModified: now
+    lastModified: lastMod(`/artistes/${artist.slug}`)
   }));
 
   return [...staticPages, ...artistEntries, ...themeEntries, ...blogEntries];
