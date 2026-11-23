@@ -281,7 +281,7 @@ export const blogArticles: BlogArticle[] = [
     ],
     links: [
       { href: "https://www.maxletagueur.com", label: "Prénoms et fresques personnalisés — Max le Tagueur", external: true },
-      { href: "/atelier-graffiti", label: "Atelier graffiti" },
+      { href: "https://www.maxletagueur.com", label: "Ateliers graffiti — Max le Tagueur", external: true },
       { href: `${SHOP}/collections/all`, label: "Toutes les œuvres sur le shop", external: true }
     ]
   },

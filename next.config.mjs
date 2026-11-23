@@ -5,6 +5,7 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      { source: "/atelier-graffiti", destination: "https://www.maxletagueur.com", permanent: true },
       { source: "/fresque-graffiti", destination: "https://www.maxletagueur.com", permanent: false },
       { source: "/artistes", destination: "/artistes-du-collectif", permanent: true },
       { source: "/blog-fluxus", destination: "/expositions", permanent: true }

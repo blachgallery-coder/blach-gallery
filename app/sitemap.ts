@@ -28,7 +28,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/artistes-du-collectif",
     "/expositions",
     "/newsletter",
-    "/atelier-graffiti",
     "/bio-contact",
     "/blog",
     "/encheres-de-la-semaine",
