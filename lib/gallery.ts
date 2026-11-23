@@ -9,15 +9,15 @@ export const FRESQUES_URL = "https://www.maxletagueur.com";
 export const GALLERY_PHONE = { display: "06 41 85 19 48", e164: "+33641851948" };
 
 export const OPENING_HOURS = [
-  { days: "Lundi, mardi, jeudi, vendredi", slots: "9h – 16h" },
+  { days: "Mardi, jeudi, vendredi", slots: "9h – 16h" },
   { days: "Mercredi, samedi", slots: "10h – 12h et 14h – 19h" },
-  { days: "Dimanche", slots: "Fermé" }
+  { days: "Dimanche, lundi", slots: "Fermé" }
 ];
 export const OPENING_HOURS_NOTE = "En dehors de ces horaires, visite possible sur rendez-vous par téléphone.";
 
 // Format schema.org (Google Business / résultats enrichis).
 export const OPENING_HOURS_SCHEMA = [
-  { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Thursday", "Friday"], opens: "09:00", closes: "16:00" },
+  { "@type": "OpeningHoursSpecification", dayOfWeek: ["Tuesday", "Thursday", "Friday"], opens: "09:00", closes: "16:00" },
   { "@type": "OpeningHoursSpecification", dayOfWeek: ["Wednesday", "Saturday"], opens: "10:00", closes: "12:00" },
   { "@type": "OpeningHoursSpecification", dayOfWeek: ["Wednesday", "Saturday"], opens: "14:00", closes: "19:00" }
 ];

@@ -183,9 +183,9 @@ export default function EnglishHomePage() {
             {GALLERY_ADDRESS.postalCode} {GALLERY_ADDRESS.city}, France
           </address>
           <ul className="hours-list">
-            <li>Monday, Tuesday, Thursday, Friday: 9 am – 4 pm</li>
+            <li>Tuesday, Thursday, Friday: 9 am – 4 pm</li>
             <li>Wednesday, Saturday: 10 am – 12 pm and 2 pm – 7 pm</li>
-            <li>Sunday: closed</li>
+            <li>Sunday, Monday: closed</li>
           </ul>
           <p className="muted">
             Outside these hours, visits by appointment: <a href={`tel:${GALLERY_PHONE.e164}`}>+33 6 41 85 19 48</a>
