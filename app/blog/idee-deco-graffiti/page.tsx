@@ -1,28 +1,16 @@
 import type { Metadata } from "next";
+import { BlogArticleView } from "@/components/blog-article-view";
+import { getBlogArticle } from "@/lib/blog-articles";
 import { pageMeta } from "@/lib/seo";
-import Link from "next/link";
-import { blogPosts } from "@/lib/data";
 
-const post = blogPosts.find((item) => item.slug === "idee-deco-graffiti")!;
+const article = getBlogArticle("idee-deco-graffiti");
 
 export const metadata: Metadata = {
-  title: post.title,
-  description: post.excerpt,
-  ...pageMeta("/blog/idee-deco-graffiti", post.title, post.excerpt)
+  title: article.title,
+  description: article.description,
+  ...pageMeta("/blog/idee-deco-graffiti", article.title, article.description)
 };
 
 export default function IdeeDecoGraffitiPage() {
-  return (
-    <section className="page-shell container">
-      <div>
-        <p className="eyebrow">Blog</p>
-        <h1 className="page-title">{post.title}</h1>
-        <p className="page-intro">{post.content}</p>
-        <p className="page-intro">
-          Pour aller plus loin, découvrez les <Link href="/artistes-du-collectif">artistes</Link> et la page{" "}
-          <Link href="/theme/pop-art">pop art</Link>.
-        </p>
-      </div>
-    </section>
-  );
+  return <BlogArticleView article={article} />;
 }

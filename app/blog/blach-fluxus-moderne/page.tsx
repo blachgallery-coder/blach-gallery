@@ -1,27 +1,16 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
+import { BlogArticleView } from "@/components/blog-article-view";
+import { getBlogArticle } from "@/lib/blog-articles";
 import { pageMeta } from "@/lib/seo";
-import Link from "next/link";
-import { blogPosts } from "@/lib/data";
 
-const post = blogPosts.find((item) => item.slug === "blach-fluxus-moderne")!;
+const article = getBlogArticle("blach-fluxus-moderne");
 
 export const metadata: Metadata = {
-  title: post.title,
-  description: post.excerpt,
-  ...pageMeta("/blog/blach-fluxus-moderne", post.title, post.excerpt)
+  title: article.title,
+  description: article.description,
+  ...pageMeta("/blog/blach-fluxus-moderne", article.title, article.description)
 };
 
 export default function BlachFluxusModernePage() {
-  return (
-    <section className="page-shell container">
-      <div>
-        <p className="eyebrow">Blog</p>
-        <h1 className="page-title">{post.title}</h1>
-        <p className="page-intro">{post.content}</p>
-        <p className="page-intro">
-          Découvrez aussi les <Link href="/artistes-du-collectif">artistes du collectif</Link>, le <Link href="/shop">shop</Link> et les <Link href="/encheres-de-la-semaine">enchères de la semaine</Link>.
-        </p>
-      </div>
-    </section>
-  );
+  return <BlogArticleView article={article} />;
 }

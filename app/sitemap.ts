@@ -9,7 +9,11 @@ const LAST_MODIFIED: Record<string, string> = {
   "": "2026-11-23",
   "/bio-contact": "2026-11-23",
   "/artistes-du-collectif": "2026-11-23",
-  "/expositions": "2026-11-21"
+  "/expositions": "2026-11-21",
+  "/blog/prix-tableau-street-art": "2026-11-23",
+  "/blog/idee-deco-graffiti": "2026-11-23",
+  "/blog/cadeau-personnalise-graffiti": "2026-11-23",
+  "/blog/blach-fluxus-moderne": "2026-11-23"
 };
 const DEFAULT_LAST_MODIFIED = "2026-11-16";
 const lastMod = (path: string) =>

@@ -1753,3 +1753,21 @@ body > .skiptranslate {
   margin: 0.25rem 0 0.75rem;
   line-height: 1.7;
 }
+
+.blog-article {
+  max-width: 760px;
+}
+.blog-article h2 {
+  margin-top: 2.2rem;
+}
+.blog-article h3 {
+  margin-top: 1.2rem;
+  font-size: 1.05rem;
+}
+.blog-article p,
+.blog-article li {
+  line-height: 1.75;
+}
+.blog-article ul {
+  padding-left: 1.2rem;
+}
