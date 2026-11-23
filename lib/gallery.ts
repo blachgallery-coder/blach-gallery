@@ -170,7 +170,7 @@ export const artworks: Artwork[] = [
     themes: ["art-moderne", "pop-art"]
   },
   {
-    handle: "pop-kong-print-sur-bois-blach®",
+    handle: "pop-kong-print-sur-bois-art-hm",
     title: "Pop Kong — Print sur bois",
     artist: "Art HM",
     type: "Édition limitée",

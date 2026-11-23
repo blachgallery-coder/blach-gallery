@@ -773,7 +773,7 @@ export const catalog: Record<string, CatalogWork[]> = {
    "dims": ""
   },
   {
-   "handle": "pop-kong-print-sur-bois-blach®",
+   "handle": "pop-kong-print-sur-bois-art-hm",
    "title": "Pop Kong — Print sur bois — Art HM",
    "type": "Édition limitée",
    "price": 110.0,

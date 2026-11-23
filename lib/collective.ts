@@ -46,7 +46,7 @@ export const collectiveArtists: CollectiveArtist[] = [
     bio: "Art HM (Hassan Mahzoum), né en 1979 au Maroc et installé à Lyon, est un peintre autodidacte. Portraits hommages, animaux, culture pop urbaine et sport : il mêle aérosol, Posca et peinture classique, avec un dessin précis et des couleurs pop qui claquent. Il expose régulièrement dans la région lyonnaise depuis 2019 et collabore avec BLACH® sur plusieurs projets.",
     style: "Portraits, animaux, pop street art, techniques mixtes",
     city: "Lyon",
-    works: [getArtwork("lion-king"), getArtwork("pop-kong-print-sur-bois-blach®")]
+    works: [getArtwork("lion-king"), getArtwork("pop-kong-print-sur-bois-art-hm")]
   },
   {
     slug: "pascal-negre",
