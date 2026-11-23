@@ -1,9 +1,19 @@
 import { ArtworkImage } from "@/components/artwork-image";
 import { formatPrice, productUrl, type Artwork } from "@/lib/gallery";
 
-export function ArtworkCard({ artwork, sizes }: { artwork: Artwork; sizes?: string }) {
+export function ArtworkCard({
+  artwork,
+  sizes,
+  lang = "fr"
+}: {
+  artwork: Artwork;
+  sizes?: string;
+  lang?: "fr" | "en";
+}) {
+  const href = lang === "en" ? productUrl(artwork.handle).replace("/products/", "/en/products/") : productUrl(artwork.handle);
+  const typeLabel = lang === "en" ? (artwork.type === "Original" ? "Original" : "Limited edition") : artwork.type;
   return (
-    <a className="artwork" href={productUrl(artwork.handle)} target="_blank" rel="noopener noreferrer">
+    <a className="artwork" href={href} target="_blank" rel="noopener noreferrer">
       <div className="artwork-frame">
         <ArtworkImage
           src={artwork.image}
@@ -17,7 +27,7 @@ export function ArtworkCard({ artwork, sizes }: { artwork: Artwork; sizes?: stri
         <p className="artwork-artist">{artwork.artist}</p>
         <h3 className="artwork-title">{artwork.title}</h3>
         <p className="artwork-meta">
-          <span>{artwork.type}</span>
+          <span>{typeLabel}</span>
           <span>{formatPrice(artwork.price)}</span>
         </p>
       </div>

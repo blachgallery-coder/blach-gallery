@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   title: { absolute: "BLACH GALLERY | Galerie d'art contemporain & collectif d'artistes lyonnais — Dardilly" },
   description:
     "BLACH GALLERY, galerie d'art contemporain et collectif d'artistes lyonnais à Dardilly : originaux, sculptures, éditions limitées, enchères Catawiki et fresques murales.",
-  alternates: { canonical: "/" }
+  alternates: { canonical: "/", languages: { "fr-FR": "/", en: "/en", "x-default": "/" } }
 };
 
 const hero = {

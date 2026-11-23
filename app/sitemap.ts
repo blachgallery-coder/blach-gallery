@@ -7,6 +7,7 @@ const baseUrl = "https://www.blachgallery.com";
 // Une date identique partout = signal ignoré par Google.
 const LAST_MODIFIED: Record<string, string> = {
   "": "2026-11-23",
+  "/en": "2026-11-23",
   "/bio-contact": "2026-11-23",
   "/artistes-du-collectif": "2026-11-23",
   "/expositions": "2026-11-21",
@@ -22,6 +23,7 @@ const lastMod = (path: string) =>
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = [
     "",
+    "/en",
     "/shop",
     "/artistes-du-collectif",
     "/expositions",

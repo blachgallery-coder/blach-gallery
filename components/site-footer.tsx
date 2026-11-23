@@ -26,6 +26,7 @@ export function SiteFooter() {
           <a href={SHOP_URL} target="_blank" rel="noopener noreferrer">Shop</a>
           <a href={CATAWIKI_URL} target="_blank" rel="noopener noreferrer">Enchères Catawiki</a>
           <a href={FRESQUES_URL} target="_blank" rel="noopener noreferrer">Fresques murales</a>
+          <a href="/en" hrefLang="en" lang="en">English version</a>
           <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
         </div>
       </div>
