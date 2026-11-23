@@ -159,17 +159,17 @@ export default function ArtistPage({ params }: Props) {
             <li>Techniques : {artist.mediums.join(", ")}</li>
             {artist.facts?.map((f) => <li key={f}>{f}</li>)}
           </ul>
-          <h3>Acheter en confiance</h3>
+          <h3>Collectionner en confiance</h3>
           <ul>
             <li>Paiement sécurisé sur shop.blachgallery.com</li>
-            <li>Expédition suivie et assurée, en France et à l&apos;international</li>
+            <li>Expédition suivie et assurée : préparation 1 à 3 jours, livraison France 2 jours, international 4 à 15 jours</li>
             <li>Édition, signature et certificat précisés sur chaque fiche produit</li>
             <li>
               Œuvres visibles à la galerie : {GALLERY_ADDRESS.street}, {GALLERY_ADDRESS.postalCode} {GALLERY_ADDRESS.city}
             </li>
           </ul>
           <p>
-            <a className="text-link" href="/bio-contact">Une question, un rendez-vous ? Contacter la galerie →</a>
+            <a className="text-link" href="/bio-contact">Un conseil d&apos;accrochage, une visite privée à Dardilly ? Contacter la galerie →</a>
           </p>
         </aside>
       </section>

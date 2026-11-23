@@ -1,7 +1,7 @@
-// Instantané Shopify (shop.blachgallery.com) du 20/11/2026 — produits actifs publiés. Ne pas éditer à la main : régénérer.
+// Instantané Shopify (shop.blachgallery.com) du 23/11/2026 — produits actifs publiés. Ne pas éditer à la main : régénérer.
 import type { CatalogWork } from "@/lib/artists";
 
-export const catalogSnapshotDate = "20/11/2026";
+export const catalogSnapshotDate = "23/11/2026";
 export const catalogCounts: Record<string, number> = {"blach": 226, "art-up": 9, "brunograffer": 1, "maria-luisa-azzini": 1, "bonte": 3, "dinara-hortnagl": 1, "socrate": 1, "truteau": 1, "2fast": 1, "canned": 3, "lee-henderson": 1, "pascal-negre": 2, "la-carotte": 19, "art-hm": 3, "severine-marchetti": 1};
 
 export const catalog: Record<string, CatalogWork[]> = {
