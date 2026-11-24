@@ -1,13 +1,15 @@
 import type { MetadataRoute } from "next";
 import { blogPosts, themePages } from "@/lib/data";
 import { artists } from "@/lib/artists";
+import { artistsEn, themesEn } from "@/lib/i18n-en";
 
 const baseUrl = "https://www.blachgallery.com";
 // Dates de dernière modification RÉELLES (à mettre à jour quand le contenu change).
 // Une date identique partout = signal ignoré par Google.
 const LAST_MODIFIED: Record<string, string> = {
   "": "2026-11-23",
-  "/en": "2026-11-23",
+  "/en": "2026-11-24",
+  "/en/artists": "2026-11-24",
   "/bio-contact": "2026-11-23",
   "/artistes-du-collectif": "2026-11-23",
   "/expositions": "2026-11-21",
@@ -18,12 +20,16 @@ const LAST_MODIFIED: Record<string, string> = {
 };
 const DEFAULT_LAST_MODIFIED = "2026-11-16";
 const lastMod = (path: string) =>
-  new Date(LAST_MODIFIED[path] ?? (path.startsWith("/artistes/") ? "2026-11-23" : DEFAULT_LAST_MODIFIED));
+  new Date(
+    LAST_MODIFIED[path] ??
+      (path.startsWith("/en/") ? "2026-11-24" : path.startsWith("/artistes/") ? "2026-11-23" : DEFAULT_LAST_MODIFIED)
+  );
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = [
     "",
     "/en",
+    "/en/artists",
     "/shop",
     "/artistes-du-collectif",
     "/expositions",
@@ -52,5 +58,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: lastMod(`/artistes/${artist.slug}`)
   }));
 
-  return [...staticPages, ...artistEntries, ...themeEntries, ...blogEntries];
+  // Versions anglaises (24/11/2026)
+  const enArtistEntries = artists
+    .filter((artist) => artistsEn[artist.slug])
+    .map((artist) => ({ url: `${baseUrl}/en/artists/${artist.slug}`, lastModified: lastMod(`/en/artists/${artist.slug}`) }));
+  const enThemeEntries = themePages
+    .filter((theme) => themesEn[theme.slug])
+    .map((theme) => ({ url: `${baseUrl}/en/theme/${theme.slug}`, lastModified: lastMod(`/en/theme/${theme.slug}`) }));
+
+  return [...staticPages, ...artistEntries, ...themeEntries, ...blogEntries, ...enArtistEntries, ...enThemeEntries];
 }

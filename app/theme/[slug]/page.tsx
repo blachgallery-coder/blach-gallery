@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { pageMeta } from "@/lib/seo";
+import { getThemeEn, themePathEn } from "@/lib/i18n-en";
 import { notFound } from "next/navigation";
 import { ArtworkGrid } from "@/components/artwork-card";
 import { getThemeBySlug, themePages } from "@/lib/data";
@@ -14,7 +15,7 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: ThemePageProps): Metadata {
   const theme = getThemeBySlug(params.slug);
   if (!theme) return {};
-  return { title: theme.h1, description: theme.intro.slice(0, 155), ...pageMeta(`/theme/${theme.slug}`, theme.h1, theme.intro.slice(0, 155)) };
+  return { title: theme.h1, description: theme.intro.slice(0, 155), ...pageMeta(`/theme/${theme.slug}`, theme.h1, theme.intro.slice(0, 155), getThemeEn(theme.slug) ? themePathEn(theme.slug) : undefined) };
 }
 
 export default function ThemePage({ params }: ThemePageProps) {
@@ -28,6 +29,11 @@ export default function ThemePage({ params }: ThemePageProps) {
         <p className="kicker">{theme.label}</p>
         <h1>{theme.h1}</h1>
         <p className="lead">{theme.intro}</p>
+        {getThemeEn(theme.slug) ? (
+          <p className="muted">
+            <a href={themePathEn(theme.slug)} hrefLang="en" lang="en">English version</a>
+          </p>
+        ) : null}
       </header>
       <ArtworkGrid items={items} />
     </section>

@@ -6,6 +6,7 @@ import { artists, artistPath, getArtist } from "@/lib/artists";
 import { catalog, catalogCounts } from "@/lib/artist-catalog";
 import { formatPrice, productUrl, GALLERY_ADDRESS } from "@/lib/gallery";
 import { pageMeta, SITE_URL } from "@/lib/seo";
+import { artistPathEn, getArtistEn } from "@/lib/i18n-en";
 
 type Props = { params: { slug: string } };
 
@@ -18,7 +19,7 @@ export function generateMetadata({ params }: Props): Metadata {
   if (!artist) return {};
   const n = catalogCounts[artist.slug] ?? 0;
   const title = n ? `${artist.name} — œuvres à vendre (${n})` : `${artist.name} — artiste`;
-  return { title, description: artist.metaDescription, ...pageMeta(artistPath(artist.slug), title, artist.metaDescription) };
+  return { title, description: artist.metaDescription, ...pageMeta(artistPath(artist.slug), title, artist.metaDescription, getArtistEn(artist.slug) ? artistPathEn(artist.slug) : undefined) };
 }
 
 export default function ArtistPage({ params }: Props) {
@@ -83,6 +84,12 @@ export default function ArtistPage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <nav className="muted" aria-label="Fil d'Ariane" style={{ fontSize: ".85rem", marginBottom: "1rem" }}>
         <a href="/">Accueil</a> / <a href="/artistes-du-collectif">Artistes</a> / <span>{artist.name}</span>
+        {getArtistEn(artist.slug) ? (
+          <>
+            {" · "}
+            <a href={artistPathEn(artist.slug)} hrefLang="en" lang="en">English</a>
+          </>
+        ) : null}
       </nav>
 
       <header className="page-head" style={{ display: "grid", gap: "1.5rem", gridTemplateColumns: artist.portrait ? "minmax(0,1fr) 220px" : "1fr", alignItems: "center" }}>

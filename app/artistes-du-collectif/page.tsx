@@ -8,7 +8,7 @@ import { catalogCounts } from "@/lib/artist-catalog";
 export const metadata: Metadata = {
   title: "Le collectif — artistes lyonnais et régionaux",
   description: "Le collectif BLACH GALLERY : BLACH®, Bonté, La Carotte, Art HM, Pascal Nègre et des peintres de la région lyonnaise, à Dardilly.",
-  ...pageMeta("/artistes-du-collectif", "Le collectif — artistes lyonnais et régionaux", "Le collectif BLACH GALLERY : BLACH®, Bonté, La Carotte, Art HM, Pascal Nègre et des peintres de la région lyonnaise, à Dardilly.")
+  ...pageMeta("/artistes-du-collectif", "Le collectif — artistes lyonnais et régionaux", "Le collectif BLACH GALLERY : BLACH®, Bonté, La Carotte, Art HM, Pascal Nègre et des peintres de la région lyonnaise, à Dardilly.", "/en/artists")
 };
 
 export default function ArtistesDuCollectifPage() {

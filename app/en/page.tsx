@@ -111,8 +111,8 @@ export default function EnglishHomePage() {
             Lyon.
           </p>
           <div className="actions">
-            <Link href="/artistes/blach" className="btn btn-outline">
-              BLACH® artist page (in French)
+            <Link href="/en/artists/blach" className="btn btn-outline">
+              BLACH® artist page
             </Link>
           </div>
         </div>
@@ -128,8 +128,8 @@ export default function EnglishHomePage() {
             under its own artist&apos;s name.
           </p>
           <div className="actions">
-            <Link href="/artistes-du-collectif" className="btn btn-outline">
-              Meet the artists (in French)
+            <Link href="/en/artists" className="btn btn-outline">
+              Meet the artists
             </Link>
           </div>
         </div>

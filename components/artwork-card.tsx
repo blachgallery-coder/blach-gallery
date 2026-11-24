@@ -35,11 +35,11 @@ export function ArtworkCard({
   );
 }
 
-export function ArtworkGrid({ items }: { items: Artwork[] }) {
+export function ArtworkGrid({ items, lang = "fr" }: { items: Artwork[]; lang?: "fr" | "en" }) {
   return (
     <div className="artwork-grid">
       {items.map((artwork) => (
-        <ArtworkCard key={artwork.handle} artwork={artwork} />
+        <ArtworkCard key={artwork.handle} artwork={artwork} lang={lang} />
       ))}
     </div>
   );
