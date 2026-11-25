@@ -9,6 +9,135 @@ const SHOP = "https://shop.blachgallery.com";
 
 export const fluxusArticles: BilingualArticle[] = [
   {
+    slug: "cassoulet-en-spray-topito",
+    publishedAt: "2026-11-25",
+    updatedAt: "2026-11-25",
+    title: "Cassoulet en spray : comment mon œuvre est devenue une invention de l'ère spatiale (selon Topito)",
+    description:
+      "Le Cassoulet en spray de BLACH® (Maxime Blachère) repris par Topito parmi les inventions extraordinaires depuis le voyage sur la Lune. Pop art, Fluxus et bombe de cassoulet.",
+    intro:
+      "L'humanité a marché sur la Lune, inventé Internet, la voiture qui conduit toute seule et l'homme volant à réaction. Et puis il y a eu le Cassoulet en spray. Ce n'est pas moi qui le dis : c'est Topito, qui a glissé mon œuvre dans sa liste des inventions extraordinaires apparues depuis notre voyage sur la Lune. Entre la conquête spatiale et la gastronomie du Sud-Ouest, il n'y avait qu'un pschitt.",
+    sections: [
+      {
+        heading: "Le contexte : une liste très sérieuse",
+        paragraphs: [
+          "Le visuel de Topito s'intitule « Ces inventions extraordinaires qui existent depuis notre voyage sur la Lune ». Quatre cases : les voitures automatiques, Internet, les combinaisons volantes… et une bombe aérosol étiquetée « Maxime Blachère — Cassoulet en spray — Authentique cassoulet de Castelnaudary ».",
+          "Être classé entre Internet et l'homme-fusée, c'est sans doute la plus belle reconnaissance scientifique de ma carrière. Je n'ai jamais rêvé du Nobel. Je n'en ai plus besoin."
+        ],
+        image: {
+          src: "https://cdn.shopify.com/s/files/1/1020/5193/8687/files/il_fullxfull.5663636710_eb4p.jpg?v=1785508568&width=1200",
+          alt: "Cassoulet en Spray, œuvre pop art de BLACH® (Maxime Blachère)",
+          caption: "Cassoulet en Spray, art by BLACH®. Ne pas secouer avant de regarder.",
+          width: 1200,
+          height: 848
+        }
+      },
+      {
+        heading: "Mais c'est quoi, un cassoulet en spray ?",
+        paragraphs: [
+          "C'est une œuvre. Pas une conserve. Je le précise pour les gourmands qui m'écrivent pour savoir si ça passe au micro-ondes : non, ça passe au mur.",
+          "Le graffeur vit avec sa bombe à la main. Un jour, je me suis demandé ce qu'il y aurait dedans si elle contenait ce que j'aime vraiment. La réponse était évidente : du cassoulet. Le détournement fait le reste : l'objet le plus « vandale » du street art devient un produit du terroir, avec sa belle étiquette crème et son lettrage à l'ancienne."
+        ]
+      },
+      {
+        heading: "Pourquoi c'est du Fluxus (et pas juste une blague)",
+        paragraphs: [
+          "Fluxus aime les objets du quotidien détournés, l'humour et les fausses évidences. Andy Warhol a peint des boîtes de soupe Campbell ; moi, j'ai mis le Sud-Ouest sous pression. La blague est le point d'entrée, et derrière, une vraie question : à quel moment un objet de consommation devient-il un objet d'art, et inversement ?",
+          "La meilleure preuve que ça marche, c'est qu'un média d'humour très suivi en France l'a pris pour une invention réelle, ou a fait semblant. Dans les deux cas, l'œuvre a fait son travail."
+        ]
+      },
+      {
+        heading: "La gamme s'est agrandie",
+        paragraphs: [
+          "Le cassoulet n'est pas resté seul longtemps dans le placard. La série compte aujourd'hui le Big Mac en Spray, la Blanquette de Veau à l'ancienne en Bombe, la Paëlla en Bombe et la Choucroute en Bombe. Un menu complet, garanti sans calories, disponible en éditions limitées, signées et numérotées.",
+          "Et pour les amateurs de sensations fortes, il existe aussi une œuvre intitulée Flatulence de Street Artist. Logique : après un cassoulet, il fallait bien une suite."
+        ]
+      }
+    ],
+    faq: [
+      {
+        q: "Le Cassoulet en spray existe-t-il vraiment ?",
+        a: "Oui, comme œuvre d'art : une édition limitée signée et numérotée de BLACH®, imprimée sur papier, avec certificat d'authenticité. Ce n'est pas un produit alimentaire."
+      },
+      {
+        q: "Où le Cassoulet en spray a-t-il été publié ?",
+        a: "Topito l'a repris dans son visuel « Ces inventions extraordinaires qui existent depuis notre voyage sur la Lune »."
+      },
+      {
+        q: "Où acheter le Cassoulet en spray ?",
+        a: "Sur la boutique en ligne de BLACH GALLERY, shop.blachgallery.com, et à la galerie de Dardilly près de Lyon."
+      }
+    ],
+    links: [
+      { href: `${SHOP}/products/cassoulet-en-spray-art-by-blach`, label: "Cassoulet en Spray sur le shop", external: true },
+      { href: "/blog/graffiti-invisible-bus-a-chevres", label: "Graffiti invisible : le bus à chèvres à 1 €" },
+      { href: "/artistes/blach", label: "Page artiste BLACH®" }
+    ],
+    en: {
+      title: "Spray-can cassoulet: how my artwork became a space-age invention (according to Topito)",
+      description:
+        "BLACH®'s (Maxime Blachère) Cassoulet en Spray featured by Topito among the extraordinary inventions since the Moon landing. Pop art, Fluxus and a spray can of cassoulet.",
+      intro:
+        "Mankind walked on the Moon and invented the internet, the self-driving car and the jet-powered flying man. And then came Spray-Can Cassoulet. I'm not the one saying it: Topito, the hugely popular French humour website, slipped my artwork into its list of extraordinary inventions since the Moon landing. Between the space race and south-west French cuisine, there was only one pssst.",
+      sections: [
+        {
+          heading: "The context: a very serious list",
+          paragraphs: [
+            "Topito's visual is titled “Extraordinary inventions that have existed since our trip to the Moon”. Four boxes: self-driving cars, the internet, flying suits… and a spray can labelled “Maxime Blachère — Cassoulet en spray — Authentic cassoulet from Castelnaudary”.",
+            "Being ranked between the internet and the rocket man is probably the finest scientific recognition of my career. I never dreamed of a Nobel Prize. I no longer need one."
+          ],
+          image: {
+            src: "https://cdn.shopify.com/s/files/1/1020/5193/8687/files/il_fullxfull.5663636710_eb4p.jpg?v=1785508568&width=1200",
+            alt: "Cassoulet en Spray, pop art artwork by BLACH® (Maxime Blachère)",
+            caption: "Cassoulet en Spray, art by BLACH®. Do not shake before viewing.",
+            width: 1200,
+            height: 848
+          }
+        },
+        {
+          heading: "So what is spray-can cassoulet?",
+          paragraphs: [
+            "It is an artwork. Not a tin. I say this for the foodies who write to ask whether it goes in the microwave: no, it goes on the wall.",
+            "A graffiti artist lives with a spray can in hand. One day I wondered what would be inside if it held what I really love. The answer was obvious: cassoulet, the slow-cooked bean stew of south-west France. Subversion does the rest: street art's most “vandal” object becomes a regional delicacy, with a cream label and old-fashioned lettering."
+          ]
+        },
+        {
+          heading: "Why it's Fluxus (and not just a joke)",
+          paragraphs: [
+            "Fluxus loves hijacked everyday objects, humour and false obviousness. Andy Warhol painted Campbell's soup cans; I put south-west France under pressure. The joke is the way in, and behind it lies a real question: when does a consumer product become an art object, and vice versa?",
+            "The best proof that it works is that one of France's most-followed humour outlets treated it as a real invention, or pretended to. Either way, the artwork did its job."
+          ]
+        },
+        {
+          heading: "The range has grown",
+          paragraphs: [
+            "The cassoulet did not stay alone in the cupboard for long. The series now includes Big Mac en Spray, old-fashioned Blanquette de Veau in a spray can, Paëlla in a spray can and Choucroute (sauerkraut) in a spray can. A full menu, guaranteed calorie-free, available as signed and numbered limited editions.",
+            "And for thrill-seekers there is also a piece called Flatulence de Street Artist. Logical: after a cassoulet, there had to be a sequel."
+          ]
+        }
+      ],
+      faq: [
+        {
+          q: "Does spray-can cassoulet really exist?",
+          a: "Yes, as an artwork: a signed, numbered limited edition by BLACH®, printed on paper, with a certificate of authenticity. It is not a food product."
+        },
+        {
+          q: "Where was the Cassoulet en Spray featured?",
+          a: "Topito included it in its visual “Extraordinary inventions that have existed since our trip to the Moon”."
+        },
+        {
+          q: "Where can I buy the Cassoulet en Spray?",
+          a: "In the BLACH GALLERY online shop, shop.blachgallery.com, and at the gallery in Dardilly near Lyon, France."
+        }
+      ],
+      links: [
+        { href: `${SHOP}/en/products/cassoulet-en-spray-art-by-blach`, label: "Cassoulet en Spray in the shop", external: true },
+        { href: "/en/blog/graffiti-invisible-bus-a-chevres", label: "Invisible graffiti: the €1 goat bus" },
+        { href: "/en/artists/blach", label: "BLACH® artist page" }
+      ]
+    }
+  },
+  {
     slug: "graffiti-invisible-bus-a-chevres",
     publishedAt: "2026-11-25",
     updatedAt: "2026-11-25",
