@@ -4,20 +4,20 @@ import Link from "next/link";
 import { blogPosts } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Blog street art, déco graffiti et conseils d'achat",
-  description: "Articles BLACH GALLERY sur le prix d'un tableau street art, les idées déco graffiti et les cadeaux personnalisés.",
-  ...pageMeta("/blog", "Blog street art, déco graffiti et conseils d'achat", "Articles BLACH GALLERY sur le prix d'un tableau street art, les idées déco graffiti et les cadeaux personnalisés.")
+  title: "Blog Fluxus — réflexion artistique de BLACH®",
+  description: "Le Blog Fluxus de BLACH GALLERY : réflexion artistique, street art, humour Fluxus et coulisses de BLACH® (Maxime Blachère), artiste à Dardilly près de Lyon.",
+  ...pageMeta("/blog", "Blog Fluxus — réflexion artistique de BLACH®", "Le Blog Fluxus de BLACH GALLERY : réflexion artistique, street art, humour Fluxus et coulisses de BLACH® (Maxime Blachère), artiste à Dardilly près de Lyon.")
 };
 
 export default function BlogPage() {
   return (
     <section className="page-shell container">
       <div>
-        <p className="eyebrow">Blog</p>
-        <h1 className="page-title">Conseils, inspiration et intention d'achat</h1>
+        <p className="eyebrow">Blog Fluxus</p>
+        <h1 className="page-title">Blog Fluxus — réflexion artistique</h1>
         <p className="page-intro">
-          Le blog soutient les requêtes informationnelles et alimente le maillage interne vers le shop et les pages
-          thématiques.
+          Coulisses, humour et réflexion artistique de BLACH® (Maxime Blachère) et du collectif BLACH GALLERY : street
+          art, graffiti, esprit Fluxus et conseils pour vivre avec l&apos;art.
         </p>
       </div>
       <div className="triple-grid">

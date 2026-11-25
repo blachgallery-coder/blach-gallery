@@ -84,6 +84,7 @@ export const navigation = [
   { href: "/encheres-de-la-semaine", label: "Enchères" },
   { href: "https://www.maxletagueur.com", label: "Fresques murales", external: true },
   { href: "/expositions", label: "Expositions" },
+  { href: "/blog", label: "Blog Fluxus" },
   { href: "/bio-contact", label: "Contact" }
 ];
 
