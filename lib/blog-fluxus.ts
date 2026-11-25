@@ -69,7 +69,7 @@ export const fluxusArticles: BilingualArticle[] = [
       {
         heading: "Quand les chèvres passent à la télé",
         paragraphs: [
-          "L'histoire a d'abord circulé sur la page Facebook du Cabribus, puis France 3 Centre-Val de Loire l'a racontée le 27 février 2023 sous le titre « INSOLITE. Un graffiti \"invisible\" pour que ses chèvres puissent garder leur bus », en se demandant s'il s'agissait d'une première mondiale. Le même jour, l'émission « C à vous la suite » sur France 5 en a parlé en direct.",
+          "L'histoire a d'abord circulé sur la page Facebook du Cabribus, puis France 3 Centre-Val de Loire l'a racontée le 27 février 2023 sous le titre « INSOLITE. Un graffiti \"invisible\" pour que ses chèvres puissent garder leur bus », en se demandant s'il s'agissait d'une première mondiale. Le lendemain, 28 février 2023, l'émission « C à vous la suite » sur France 5 en a parlé en direct, avec Julien Courbet et Jean-Albert Lièvre sur le plateau, dans une séquence sur la cause animale.",
           "Le bus a ensuite fait le tour des réseaux, jusqu'au Portugal, où il est devenu « o autocarro das cabras ». Pas mal pour une œuvre que personne n'a jamais vue."
         ]
       },
@@ -98,7 +98,7 @@ export const fluxusArticles: BilingualArticle[] = [
       },
       {
         q: "Quels médias en ont parlé ?",
-        a: "France 3 Centre-Val de Loire (27 février 2023) et l'émission « C à vous la suite » sur France 5 le même jour, puis des relais sur les réseaux sociaux, notamment au Portugal."
+        a: "France 3 Centre-Val de Loire (27 février 2023) et l'émission « C à vous la suite » sur France 5 le 28 février 2023, puis des relais sur les réseaux sociaux, notamment au Portugal."
       }
     ],
     links: [
@@ -164,7 +164,7 @@ export const fluxusArticles: BilingualArticle[] = [
         {
           heading: "When goats go on TV",
           paragraphs: [
-            "The story first spread on Le Cabribus Facebook page, then France 3 Centre-Val de Loire covered it on 27 February 2023 under the headline “UNUSUAL. An ‘invisible’ graffiti so her goats can keep their bus”, wondering whether it was a world first. The same day, France 5's live show “C à vous la suite” talked about it.",
+            "The story first spread on Le Cabribus Facebook page, then France 3 Centre-Val de Loire covered it on 27 February 2023 under the headline “UNUSUAL. An ‘invisible’ graffiti so her goats can keep their bus”, wondering whether it was a world first. The next day, 28 February 2023, France 5's live show “C à vous la suite” talked about it, with Julien Courbet and Jean-Albert Lièvre on set, in a segment about animal welfare.",
             "The bus then travelled across social media all the way to Portugal, where it became “o autocarro das cabras”. Not bad for an artwork nobody has ever seen."
           ]
         },
@@ -193,7 +193,7 @@ export const fluxusArticles: BilingualArticle[] = [
         },
         {
           q: "Which media covered it?",
-          a: "France 3 Centre-Val de Loire (27 February 2023) and France 5's show “C à vous la suite” the same day, then social media, including in Portugal."
+          a: "France 3 Centre-Val de Loire (27 February 2023) and France 5's show “C à vous la suite” on 28 February 2023, then social media, including in Portugal."
         }
       ],
       links: [
