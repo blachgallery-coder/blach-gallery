@@ -1,7 +1,8 @@
 // Articles de blog complets (23/11/2026) — contenu long + FAQ, pour le SEO FR et la lecture par les IA.
 // Règle : uniquement des faits vérifiables (prix = catalogue Shopify relevé le 29/10/2026, délais = boutique).
 
-export type ArticleSection = { heading: string; paragraphs: string[]; bullets?: string[] };
+export type ArticleImage = { src: string; alt: string; caption?: string; width: number; height: number };
+export type ArticleSection = { heading: string; paragraphs: string[]; bullets?: string[]; image?: ArticleImage };
 export type ArticleFaq = { q: string; a: string };
 export type ArticleLink = { href: string; label: string; external?: boolean };
 

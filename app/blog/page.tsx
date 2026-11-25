@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
-import { blogPosts } from "@/lib/data";
+import { blogArticles } from "@/lib/blog-articles";
+import { fluxusArticles } from "@/lib/blog-fluxus";
 
 export const metadata: Metadata = {
   title: "Blog Fluxus — réflexion artistique de BLACH®",
@@ -17,15 +18,22 @@ export default function BlogPage() {
         <h1 className="page-title">Blog Fluxus — réflexion artistique</h1>
         <p className="page-intro">
           Coulisses, humour et réflexion artistique de BLACH® (Maxime Blachère) et du collectif BLACH GALLERY : street
-          art, graffiti, esprit Fluxus et conseils pour vivre avec l&apos;art.
+          art, graffiti, esprit Fluxus et conseils pour vivre avec l&apos;art. <Link href="/en/blog">English version</Link>
         </p>
       </div>
       <div className="triple-grid">
-        {blogPosts.map((post) => (
+        {fluxusArticles.map((post) => (
           <Link key={post.slug} href={`/blog/${post.slug}`} className="blog-card">
-            <p className="eyebrow">Article</p>
+            <p className="eyebrow">Fluxus</p>
             <h2>{post.title}</h2>
-            <p>{post.excerpt}</p>
+            <p>{post.description}</p>
+          </Link>
+        ))}
+        {blogArticles.map((post) => (
+          <Link key={post.slug} href={`/blog/${post.slug}`} className="blog-card">
+            <p className="eyebrow">Conseils</p>
+            <h2>{post.title}</h2>
+            <p>{post.description}</p>
           </Link>
         ))}
       </div>

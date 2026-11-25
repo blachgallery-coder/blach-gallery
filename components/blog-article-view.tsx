@@ -2,8 +2,8 @@ import Link from "next/link";
 import type { BlogArticle } from "@/lib/blog-articles";
 import { SITE_URL } from "@/lib/seo";
 
-export function blogArticleJsonLd(article: BlogArticle) {
-  const url = `${SITE_URL}/blog/${article.slug}`;
+export function blogArticleJsonLd(article: BlogArticle, lang: "fr" | "en" = "fr") {
+  const url = `${SITE_URL}${lang === "en" ? "/en" : ""}/blog/${article.slug}`;
   return {
     "@context": "https://schema.org",
     "@graph": [
@@ -14,7 +14,7 @@ export function blogArticleJsonLd(article: BlogArticle) {
         description: article.description,
         datePublished: article.publishedAt,
         dateModified: article.updatedAt,
-        inLanguage: "fr-FR",
+        inLanguage: lang === "en" ? "en" : "fr-FR",
         mainEntityOfPage: url,
         author: { "@id": `${SITE_URL}/#blach` },
         publisher: { "@id": `${SITE_URL}/#gallery` }
@@ -32,16 +32,27 @@ export function blogArticleJsonLd(article: BlogArticle) {
   };
 }
 
-export function BlogArticleView({ article }: { article: BlogArticle }) {
-  const updated = new Date(article.updatedAt).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" });
+export function BlogArticleView({ article, lang = "fr", altHref }: { article: BlogArticle; lang?: "fr" | "en"; altHref?: string }) {
+  const en = lang === "en";
+  const updated = new Date(article.updatedAt).toLocaleDateString(en ? "en-GB" : "fr-FR", { day: "numeric", month: "long", year: "numeric" });
   return (
-    <article className="page-shell container blog-article">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogArticleJsonLd(article)) }} />
+    <article className="page-shell container blog-article" lang={lang}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogArticleJsonLd(article, lang)) }} />
       <p className="eyebrow">
-        <Link href="/blog">Blog</Link>
+        <Link href={en ? "/en/blog" : "/blog"}>Blog Fluxus</Link>
+        {altHref && (
+          <>
+            {" · "}
+            <Link href={altHref} hrefLang={en ? "fr" : "en"}>
+              {en ? "Version française" : "English version"}
+            </Link>
+          </>
+        )}
       </p>
       <h1 className="page-title">{article.title}</h1>
-      <p className="muted">Mis à jour le {updated} · BLACH GALLERY</p>
+      <p className="muted">
+        {en ? "Updated" : "Mis à jour le"} {updated} · BLACH® · BLACH GALLERY
+      </p>
       <p className="page-intro">{article.intro}</p>
 
       {article.sections.map((section) => (
@@ -50,6 +61,19 @@ export function BlogArticleView({ article }: { article: BlogArticle }) {
           {section.paragraphs.map((p, i) => (
             <p key={i}>{p}</p>
           ))}
+          {section.image && (
+            <figure className="blog-figure">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={section.image.src}
+                alt={section.image.alt}
+                width={section.image.width}
+                height={section.image.height}
+                loading="lazy"
+              />
+              {section.image.caption && <figcaption className="muted">{section.image.caption}</figcaption>}
+            </figure>
+          )}
           {section.bullets && (
             <ul>
               {section.bullets.map((b) => (
@@ -61,7 +85,7 @@ export function BlogArticleView({ article }: { article: BlogArticle }) {
       ))}
 
       <section>
-        <h2>Questions fréquentes</h2>
+        <h2>{en ? "FAQ" : "Questions fréquentes"}</h2>
         {article.faq.map((item) => (
           <div key={item.q} className="faq-item">
             <h3>{item.q}</h3>
@@ -71,7 +95,7 @@ export function BlogArticleView({ article }: { article: BlogArticle }) {
       </section>
 
       <section>
-        <h2>Pour aller plus loin</h2>
+        <h2>{en ? "Read more" : "Pour aller plus loin"}</h2>
         <ul>
           {article.links.map((link) => (
             <li key={link.href}>
