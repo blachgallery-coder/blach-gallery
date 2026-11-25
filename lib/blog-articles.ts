@@ -2,7 +2,14 @@
 // Règle : uniquement des faits vérifiables (prix = catalogue Shopify relevé le 29/10/2026, délais = boutique).
 
 export type ArticleImage = { src: string; alt: string; caption?: string; width: number; height: number };
-export type ArticleSection = { heading: string; paragraphs: string[]; bullets?: string[]; image?: ArticleImage };
+export type ArticleVideo = { youtubeId: string; title: string; caption?: string };
+export type ArticleSection = {
+  heading: string;
+  paragraphs: string[];
+  bullets?: string[];
+  image?: ArticleImage;
+  video?: ArticleVideo;
+};
 export type ArticleFaq = { q: string; a: string };
 export type ArticleLink = { href: string; label: string; external?: boolean };
 

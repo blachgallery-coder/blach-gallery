@@ -61,6 +61,20 @@ export function BlogArticleView({ article, lang = "fr", altHref }: { article: Bl
           {section.paragraphs.map((p, i) => (
             <p key={i}>{p}</p>
           ))}
+          {section.video && (
+            <figure className="blog-video">
+              <div className="blog-video-frame">
+                <iframe
+                  src={`https://www.youtube-nocookie.com/embed/${section.video.youtubeId}`}
+                  title={section.video.title}
+                  loading="lazy"
+                  allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+              {section.video.caption && <figcaption className="muted">{section.video.caption}</figcaption>}
+            </figure>
+          )}
           {section.image && (
             <figure className="blog-figure">
               {/* eslint-disable-next-line @next/next/no-img-element */}

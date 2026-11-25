@@ -9,6 +9,165 @@ const SHOP = "https://shop.blachgallery.com";
 
 export const fluxusArticles: BilingualArticle[] = [
   {
+    slug: "tagueur73-max-le-tagueur-blach-debuts",
+    publishedAt: "2026-11-25",
+    updatedAt: "2026-11-25",
+    title: "De Tagueur73 à BLACH® : tout a commencé avec quinze gamins sans trousse",
+    description:
+      "Les débuts de Maxime Blachère : surveillant au collège Marlioz d'Aix-les-Bains, BlogStar Skyrock 2009 sous le blaze Tagueur73, puis Max le Tagueur et BLACH®. Trois blazes, une histoire.",
+    intro:
+      "Avant BLACH®, avant les galeries de Hong Kong et les certificats d'authenticité, il y avait une salle de permanence, quinze gamins, zéro trousse et beaucoup trop d'énergie. Voici comment Tagueur73 est devenu Max le Tagueur, puis BLACH®. Trois blazes, une même histoire.",
+    sections: [
+      {
+        heading: "Collège Marlioz, Aix-les-Bains : la permanence la plus créative de Savoie",
+        paragraphs: [
+          "Tout commence au collège Marlioz, à Aix-les-Bains, à la fin des années 2000. Je suis surveillant. Chaque soir, je me retrouve en permanence avec une quinzaine de petits délinquants juvéniles qui attendent leur éducateur jusqu'à 18 heures.",
+          "Pas de sac, pas de trousse, pas de devoirs… mais une imagination débordante pour foutre le bordel. Je décide alors d'organiser des ateliers de dessin et de graffiti. La CPE n'était pas franchement favorable à l'idée. Mais bon, donnez-moi quinze gamins sans matériel scolaire et expliquez-moi comment les occuper !",
+          "J'en profite pour perfectionner ma technique de graffiti digital, dessiné sur papier puis colorisé à l'ordinateur, et pour réaliser des bandes dessinées."
+        ]
+      },
+      {
+        heading: "2009 : Tagueur73 devient BlogStar Skyrock",
+        paragraphs: [
+          "Pour partager nos créations, je lance un Skyblog consacré à la BD et au graffiti, sous le pseudonyme Tagueur73. Le 73, c'est la Savoie. Contre toute attente, je suis élu BlogStar Skyrock en 2009."
+        ],
+        bullets: [
+          "Plus de 40 000 visites en une semaine",
+          "400 commentaires",
+          "Des commandes venues de toute la francophonie : France, Suisse, Belgique, Canada…"
+        ],
+        video: {
+          youtubeId: "uv25PmLAwSU",
+          title: "Tag « Joyeuses Pâques » by Tagueur73 (2010)",
+          caption: "Archive : « Joyeuses Pâques », tag dessiné sur papier et colorisé sous GIMP, publié par Tagueur73 en mars 2010."
+        }
+      },
+      {
+        heading: "Parmi les premiers à vendre du graffiti numérique",
+        paragraphs: [
+          "Je commence à vendre des graffitis numériques et des dessins personnalisés. À ma connaissance, je faisais partie des tout premiers à vendre du graffiti digital sur Internet, après MindGem, le créateur suédois de The Graffiti Creator.",
+          "À l'époque, un prénom en graffiti envoyé par mail, c'était presque de la science-fiction. Aujourd'hui, ça s'appelle un business model."
+        ]
+      },
+      {
+        heading: "2014 : naissance de maxletagueur.com",
+        paragraphs: [
+          "Entre-temps, je poursuis une carrière de professeur d'EPS et d'entraîneur de volley-ball. En 2014, je crée moi-même mon premier site Internet, maxletagueur.com. Les commandes se multiplient et l'aventure artistique prend peu à peu le dessus sur l'enseignement."
+        ]
+      },
+      {
+        heading: "2016 : adieu l'Éducation nationale, bonjour la vie d'artiste",
+        paragraphs: [
+          "Je quitte l'enseignement pour me consacrer entièrement à mon activité artistique. Pour signer mes tableaux, j'adopte un nouveau pseudonyme : BLACH®. Encore un blaze de plus à mon palmarès.",
+          "C'est le début de la vie Fluxus de Maxime Blachère, entre street art, détournements, expérimentations, humour et liberté créative. Comme quoi, quinze gamins sans trousse auront fini par changer le cours de ma vie."
+        ]
+      },
+      {
+        heading: "Big up",
+        paragraphs: [
+          "Big up à tous mes anciens petits morveux du collège Marlioz, à la Tranche, au quartier Lafin, au quartier Marlioz et, évidemment, au boulevard Lepic. Les anciens de Skyrock se souviendront…"
+        ]
+      }
+    ],
+    faq: [
+      {
+        q: "Qui est Tagueur73 ?",
+        a: "Tagueur73 est le premier pseudonyme de Maxime Blachère, sous lequel il a tenu un Skyblog de BD et de graffiti, élu BlogStar Skyrock en 2009."
+      },
+      {
+        q: "Quelle est la différence entre Max le Tagueur et BLACH® ?",
+        a: "Ce sont deux signatures du même artiste, Maxime Blachère : Max le Tagueur pour le graffiti personnalisé, les fresques et les commandes (maxletagueur.com, créé en 2014), BLACH® pour les tableaux et les œuvres d'art depuis 2016."
+      },
+      {
+        q: "Où tout a-t-il commencé ?",
+        a: "Au collège Marlioz d'Aix-les-Bains, en Savoie, à la fin des années 2000, lors d'ateliers de dessin et de graffiti organisés en salle de permanence."
+      }
+    ],
+    links: [
+      { href: "https://www.maxletagueur.com", label: "maxletagueur.com — fresques et graffiti personnalisé", external: true },
+      { href: "/blog/interview-moscou-dessert-report-blach", label: "Moscou m'a interviewé : la phobie du pinceau" },
+      { href: "/artistes/blach", label: "Page artiste BLACH®" }
+    ],
+    en: {
+      title: "From Tagueur73 to BLACH®: it all started with fifteen kids without a pencil case",
+      description:
+        "Maxime Blachère's beginnings: school supervisor at Collège Marlioz in Aix-les-Bains, Skyrock BlogStar in 2009 as Tagueur73, then Max le Tagueur and BLACH®. Three tags, one story.",
+      intro:
+        "Before BLACH®, before the Hong Kong galleries and the certificates of authenticity, there was a study room, fifteen kids, zero pencil cases and far too much energy. This is how Tagueur73 became Max le Tagueur, then BLACH®. Three tags, one story.",
+      sections: [
+        {
+          heading: "Collège Marlioz, Aix-les-Bains: the most creative study room in Savoie",
+          paragraphs: [
+            "It all starts at Collège Marlioz, a secondary school in Aix-les-Bains, France, in the late 2000s. I am a school supervisor. Every evening I am in the study room with about fifteen young troublemakers waiting for their social worker until 6 pm.",
+            "No bag, no pencil case, no homework… but boundless imagination for causing chaos. So I decide to run drawing and graffiti workshops. The head of student life was not exactly keen. But hey, give me fifteen kids with no school supplies and tell me how to keep them busy!",
+            "I use the time to perfect my digital graffiti technique, drawn on paper then coloured on the computer, and to make comic strips."
+          ]
+        },
+        {
+          heading: "2009: Tagueur73 becomes a Skyrock BlogStar",
+          paragraphs: [
+            "To share our creations I launch a Skyblog about comics and graffiti under the name Tagueur73. The 73 is the Savoie département number. Against all odds, I am elected Skyrock BlogStar in 2009."
+          ],
+          bullets: [
+            "Over 40,000 visits in one week",
+            "400 comments",
+            "Orders from across the French-speaking world: France, Switzerland, Belgium, Canada…"
+          ],
+          video: {
+            youtubeId: "uv25PmLAwSU",
+            title: "Tag “Joyeuses Pâques” by Tagueur73 (2010)",
+            caption: "Archive: “Joyeuses Pâques” (Happy Easter), a tag drawn on paper and coloured in GIMP, posted by Tagueur73 in March 2010."
+          }
+        },
+        {
+          heading: "Among the first to sell digital graffiti",
+          paragraphs: [
+            "I start selling digital graffiti and personalised drawings. As far as I know, I was among the very first to sell digital graffiti online, after MindGem, the Swedish creator of The Graffiti Creator.",
+            "Back then, a name in graffiti sent by email was almost science fiction. Today it's called a business model."
+          ]
+        },
+        {
+          heading: "2014: maxletagueur.com is born",
+          paragraphs: [
+            "Meanwhile I continue my career as a PE teacher and volleyball coach. In 2014 I build my first website myself, maxletagueur.com. Orders multiply and the art adventure gradually takes over from teaching."
+          ]
+        },
+        {
+          heading: "2016: goodbye national education, hello artist's life",
+          paragraphs: [
+            "I leave teaching to devote myself entirely to art. To sign my paintings I adopt a new name: BLACH®. One more tag for the collection.",
+            "It is the start of Maxime Blachère's Fluxus life, between street art, subversion, experiments, humour and creative freedom. Who knew fifteen kids without pencil cases would end up changing the course of my life?"
+          ]
+        },
+        {
+          heading: "Big up",
+          paragraphs: [
+            "Big up to all my former little rascals from Collège Marlioz, to la Tranche, the Lafin and Marlioz neighbourhoods and, of course, boulevard Lepic. Old-school Skyrock fans will remember…"
+          ]
+        }
+      ],
+      faq: [
+        {
+          q: "Who is Tagueur73?",
+          a: "Tagueur73 is Maxime Blachère's first artist name, under which he ran a comics and graffiti Skyblog elected Skyrock BlogStar in 2009."
+        },
+        {
+          q: "What is the difference between Max le Tagueur and BLACH®?",
+          a: "They are two signatures of the same artist, Maxime Blachère: Max le Tagueur for personalised graffiti, murals and commissions (maxletagueur.com, created in 2014), and BLACH® for paintings and artworks since 2016."
+        },
+        {
+          q: "Where did it all begin?",
+          a: "At Collège Marlioz in Aix-les-Bains, Savoie, France, in the late 2000s, during drawing and graffiti workshops held in the school study room."
+        }
+      ],
+      links: [
+        { href: "https://www.maxletagueur.com", label: "maxletagueur.com — murals and personalised graffiti", external: true },
+        { href: "/en/blog/interview-moscou-dessert-report-blach", label: "Moscow interviewed me: brush phobia" },
+        { href: "/en/artists/blach", label: "BLACH® artist page" }
+      ]
+    }
+  },
+  {
     slug: "cassoulet-en-spray-topito",
     publishedAt: "2026-11-25",
     updatedAt: "2026-11-25",

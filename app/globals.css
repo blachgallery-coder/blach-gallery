@@ -1785,3 +1785,23 @@ body > .skiptranslate {
   font-size: 0.9rem;
   margin-top: 0.4rem;
 }
+
+.blog-video {
+  margin: 1.5rem 0;
+}
+.blog-video-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+.blog-video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.blog-video figcaption {
+  font-size: 0.9rem;
+  margin-top: 0.4rem;
+}
